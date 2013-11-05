@@ -1,0 +1,6 @@
+[submodule "home/.zprezto"]
+	path = home/.zprezto
+	url = https://github.com/padakuro/prezto
+[submodule "home/.vim"]
+	path = home/.vim
+	url = https://github.com/bling/dotvim.git
