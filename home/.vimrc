@@ -2,7 +2,7 @@
 let g:dotvim_settings = {}
 let g:dotvim_settings.version = 1
 let g:dotvim_settings.default_indent = 2
-let g:dotvim_settings.colorscheme = 'BlackSea'
+let g:dotvim_settings.colorscheme = 'oceanlight'
 
 " bling.vim main files
 source ~/.vim/vimrc
