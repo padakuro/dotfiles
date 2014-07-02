@@ -1,8 +1,11 @@
+let mapleader = ","
+let g:NERDTreeWinSize = 45
+
 " bling.vim settings (https://github.com/bling/dotvim)
 let g:dotvim_settings = {}
 let g:dotvim_settings.version = 1
 let g:dotvim_settings.default_indent = 2
-let g:dotvim_settings.colorscheme = 'oceanlight'
+let g:dotvim_settings.colorscheme = 'default'
 
 " bling.vim main files
 source ~/.vim/vimrc
@@ -18,3 +21,12 @@ set clipboard=unnamedplus
 :unmap <Right>
 :unmap <Down>
 :unmap <Left>
+
+" NERDTree: exit vim if it's the last window
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" automatically switch the working directory to the where the opened file is
+autocmd BufEnter * lcd %:p:h
+
+set guifont=Meslo\ LG\ M\ 11
+
