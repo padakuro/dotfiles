@@ -20,6 +20,7 @@ alias sedit='sudoedit'
 alias sfdev='app/console --env=dev'
 alias sfprod='app/console --env=prod'
 alias sftest='app/console --env=test'
+alias gulp='node ./node_modules/gulp/bin/gulp.js'
 
 # common stuff
 export EDITOR=vim
