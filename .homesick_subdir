@@ -1,3 +1,4 @@
 .config/htop
 .kde4/share/apps/color-schemes
 .kde4/share/apps/konsole
+.local/share/applications
