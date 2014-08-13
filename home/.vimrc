@@ -71,6 +71,7 @@ endfunction "}}}
       let NERDTreeShowBookmarks=1
       let NERDTreeIgnore=['\.git','\.hg']
       let NERDTreeBookmarksFile=s:get_cache_dir('NERDTreeBookmarks')
+      let NERDTreeWinSize=42
       nnoremap <F2> :NERDTreeToggle<CR>
       nnoremap <F3> :NERDTreeFind<CR>
     "}}}
@@ -163,6 +164,9 @@ highlight SignifySignAdd    cterm=bold ctermbg=235  ctermfg=green
 highlight SignifySignDelete cterm=bold ctermbg=235  ctermfg=red
 highlight SignifySignChange cterm=bold ctermbg=235  ctermfg=yellow
 
+highlight VertSplit         ctermbg=235 ctermfg=237
+highlight Visual            ctermbg=235
+
 " use ag: https://github.com/ggreer/the_silver_searcher
 set grepprg=ag\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow
 set grepformat=%f:%l:%c:%m
@@ -172,9 +176,6 @@ set undofile
 let &undodir = s:get_cache_dir('undo')
 set noswapfile
 set nobackup
-
-" automatically switch the working directory to the where the opened file is
-autocmd BufEnter * lcd %:p:h
 
 "}}}
 
@@ -186,8 +187,11 @@ autocmd BufEnter * lcd %:p:h
 
 "}}}
 
+" automatically switch the working directory to the where the opened file is
+autocmd BufEnter * lcd %:p:h
+
 " NERDTree: exit vim if it's the last window
-"autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 " https://github.com/tpope/vim-markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
