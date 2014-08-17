@@ -4,6 +4,8 @@ set all& "reset everything to their defaults
 set nocompatible "iMproved
 set background=dark
 
+let mapleader=","
+
 let s:cache_dir = '~/.vim/.cache'
 function! s:get_cache_dir(suffix) "{{{
     return resolve(expand(s:cache_dir . '/' . a:suffix))
@@ -18,14 +20,20 @@ endfunction "}}}
     
     NeoBundle 'chriskempson/base16-vim'
     NeoBundle 'bling/vim-airline' "{{{ 
-        let g:airline_theme='wombat'
-        let g:airline_powerline_fonts = 1
+      let g:airline_theme='wombat'
+      let g:airline_powerline_fonts = 1
     "}}}
     NeoBundle 'tpope/vim-dispatch'
     NeoBundle 'tpope/vim-unimpaired'
     NeoBundle 'tpope/vim-speeddating'
     NeoBundle 'terryma/vim-expand-region'
-    NeoBundle 'bufkill.vim'
+    NeoBundle 'bling/vim-bufferline' "{{{
+      let g:bufferline_echo = 0
+    "}}}
+    NeoBundle 'wincent/command-t' "{{{
+      let g:CommandTMaxHeight=13
+      let g:CommandTMaxCachedDirectories=100
+    "}}}
 
     NeoBundleLazy 'groenewege/vim-less', {'autoload':{'filetypes':['less']}}
     NeoBundleLazy 'cakebaker/scss-syntax.vim', {'autoload':{'filetypes':['scss','sass']}}
@@ -107,9 +115,9 @@ set backspace=indent,eol,start " allow backspacing everything in insert mode
 set autoindent
 set expandtab " <tab> to spaces
 set smarttab " <tab> width depending on context
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set shiftround " align indents to multiples of shiftwidth
 set linebreak
 let &showbreak='↪ '
@@ -145,7 +153,7 @@ autocmd WinEnter * setlocal cursorline
 
 " highlight cursor column
 set cursorcolumn 
-highlight CursorColumn term=reverse cterm=none ctermbg=237
+highlight CursorColumn term=reverse cterm=none ctermbg=234
 autocmd WinLeave * setlocal nocursorcolumn
 autocmd WinEnter * setlocal cursorcolumn
 
@@ -164,6 +172,9 @@ highlight SignifySignAdd    cterm=bold ctermbg=235  ctermfg=green
 highlight SignifySignDelete cterm=bold ctermbg=235  ctermfg=red
 highlight SignifySignChange cterm=bold ctermbg=235  ctermfg=yellow
 
+highlight PMenuSel          ctermbg=237 ctermfg=255
+highlight Search            ctermbg=148 ctermfg=0
+highlight Todo              ctermbg=237
 highlight VertSplit         ctermbg=235 ctermfg=237
 highlight Visual            ctermbg=235
 
