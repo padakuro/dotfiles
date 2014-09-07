@@ -18,7 +18,9 @@ endfunction "}}}
     set runtimepath+=~/.vim/bundle/neobundle.vim/
     call neobundle#begin(expand('~/.vim/bundle/'))
     
-    NeoBundle 'chriskempson/base16-vim'
+    NeoBundle 'padakuro/vim-hybrid' "{{{
+"      let g:hybrid_use_Xresources = 1
+    "}}}
     NeoBundle 'bling/vim-airline' "{{{ 
       let g:airline_theme='wombat'
       let g:airline_powerline_fonts = 1
@@ -91,7 +93,7 @@ endfunction "}}}
 
 "{{{ base
 
-colorscheme base16-default
+colorscheme hybrid
 set mouse=a " enable mouse
 set mousehide " hide mouse while typing
 set history=1000 " command history
@@ -128,6 +130,8 @@ set splitright " splite new windows right to the current window
 set noerrorbells " disable error sounds
 set novisualbell
 set t_vb= " clear visual bell
+set t_Co=256 " tell vim that the host terminal supports 256 colors
+set t_ut= " disable clear BCE http://sunaku.github.io/vim-256color-bce.html
 set hlsearch " highlight searches
 set incsearch " incremental searches
 set ignorecase " case-insensitive searches by default
@@ -140,6 +144,7 @@ set noshowmode " don't show a status message on the command line in INSERT/VISUA
 set foldenable " enable folding
 set foldmethod=syntax
 set foldlevelstart=99 " open all folds by default
+set nowrap " no soft line wrap
 
 " status line
 set laststatus=2 " always show the status line
@@ -147,36 +152,13 @@ set laststatus=2 " always show the status line
 
 " highlight active line
 set cursorline 
-highlight CursorLine term=reverse cterm=none ctermbg=237
 autocmd WinLeave * setlocal nocursorline
 autocmd WinEnter * setlocal cursorline
 
 " highlight cursor column
 set cursorcolumn 
-highlight CursorColumn term=reverse cterm=none ctermbg=234
 autocmd WinLeave * setlocal nocursorcolumn
 autocmd WinEnter * setlocal cursorcolumn
-
-" line number
-highlight LineNr term=none ctermfg=8 ctermbg=235
-highlight CursorLineNr ctermfg=255 ctermbg=237
-
-" highlight lines in Sy and vimdiff etc.)
-highlight DiffAdd           cterm=bold ctermbg=none ctermfg=green
-highlight DiffDelete        cterm=bold ctermbg=none ctermfg=red
-highlight DiffChange        cterm=bold ctermbg=none ctermfg=yellow
-
-" highlight signs in Sy
-highlight SignColumn        ctermbg=235
-highlight SignifySignAdd    cterm=bold ctermbg=235  ctermfg=green
-highlight SignifySignDelete cterm=bold ctermbg=235  ctermfg=red
-highlight SignifySignChange cterm=bold ctermbg=235  ctermfg=yellow
-
-highlight PMenuSel          ctermbg=237 ctermfg=255
-highlight Search            ctermbg=148 ctermfg=0
-highlight Todo              ctermbg=237
-highlight VertSplit         ctermbg=235 ctermfg=237
-highlight Visual            ctermbg=235
 
 " use ag: https://github.com/ggreer/the_silver_searcher
 set grepprg=ag\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow
@@ -199,7 +181,7 @@ set nobackup
 "}}}
 
 " automatically switch the working directory to the where the opened file is
-autocmd BufEnter * lcd %:p:h
+"autocmd BufEnter * lcd %:p:h
 
 " NERDTree: exit vim if it's the last window
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
