@@ -36,6 +36,7 @@ endfunction "}}}
       let g:CommandTMaxHeight=13
       let g:CommandTMaxCachedDirectories=100
     "}}}
+    NeoBundle 'scrooloose/nerdcommenter'
 
     NeoBundleLazy 'groenewege/vim-less', {'autoload':{'filetypes':['less']}}
     NeoBundleLazy 'cakebaker/scss-syntax.vim', {'autoload':{'filetypes':['scss','sass']}}
@@ -50,7 +51,7 @@ endfunction "}}}
     NeoBundle 'mhinz/vim-signify' "{{{
       let g:signify_update_on_bufenter=0
     "}}}
-    
+   
     NeoBundle 'tpope/vim-fugitive' "{{{
       nnoremap <silent> <leader>gs :Gstatus<CR>
       nnoremap <silent> <leader>gd :Gdiff<CR>
