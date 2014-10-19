@@ -100,12 +100,8 @@ set mousehide " hide mouse while typing
 set history=1000 " command history
 set ttyfast " assume fast terminal connection
 set encoding=utf-8
-if exists('$TMUX')
-    set clipboard=
-else
-    " sync with OS clipboard
-    set clipboard=unnamedplus
-endif
+" sync with OS clipboard
+set clipboard=unnamedplus
 set hidden " allow buffer switching without saving
 set autoread " auto reload if file saved externally
 set fileformats+=mac " add mac to auto-detection of file format line endings 
