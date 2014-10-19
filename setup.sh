@@ -1,23 +1,35 @@
 #!/usr/bin/env sh
 
-ensure_directory() {
-    local dir=$1
+print_section() {
+  local name=$1
+  echo -e "\e[1;42m > $name \e[0m"
+}
 
-    if [ ! -d ${dir} ]; then
-        mkdir -vp ${dir}
-    fi
+ensure_directory() {
+  local dir=$1
+
+  if [ ! -d ${dir} ]; then
+      mkdir -vp ${dir}
+  fi
 }
 
 check_arch_package() {
-    local name=$1
-    
-    pacman -Q ${name}
+  local name=$1
+  
+  result=$(pacman -Q ${name})
+
+  if [ "$?" != "0" ]; then
+    echo ${result}
+  fi
 }
 
-# vim directories
-echo "Ensuring directories..."
+print_section "vim"
 ensure_directory "${HOME}/.vim/.cache"
 ensure_directory "${HOME}/.vim/.cache/undo"
 
-echo "Checking packages..."
+print_section "python virtualenvs"
+ensure_directory "${WORKON_HOME}"
+check_arch_package "python-virtualenvwrapper"
+
+print_section "additional packages"
 check_arch_package "the_silver_searcher" # improved grep, also used by vim

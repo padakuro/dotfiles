@@ -43,6 +43,14 @@ export NPM_PACKAGES="$HOME/.npm-packages"
 export PATH="$NPM_PACKAGES/bin:$PATH"
 export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
 
+# python virtual envs
+export WORKON_HOME=$HOME/.virtualenvs
+export PIP_VIRTUALENV_BASE=$WORKON_HOME
+export PIP_RESPECT_VIRTUALENV=true
+
+# sourcing it always causes delays
+need_virtual_envs() { source /usr/bin/virtualenvwrapper.sh; }
+
 # konsole: map CTRL+left/right to backward/forward word (KDE Konsole)
 bindkey ';5D' emacs-backward-word
 bindkey ';5C' emacs-forward-word
