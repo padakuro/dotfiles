@@ -61,5 +61,3 @@ tcsh-backward-word() {
 }
 zle -N tcsh-backward-word
 
-# keychain: agent
-eval $(keychain --eval --agents ssh -Q --quiet)
