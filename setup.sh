@@ -33,3 +33,9 @@ check_arch_package "python-virtualenvwrapper"
 
 print_section "additional packages"
 check_arch_package "the_silver_searcher" # improved grep, also used by vim
+
+print_section "configuring npm for home-global install"
+npm_prefix=$(grep "^prefix" ~/.npmrc)
+if [ "$?" != "0" ]; then
+  echo "prefix = $NPM_PACKAGES" >> ~/.npmrc
+fi
