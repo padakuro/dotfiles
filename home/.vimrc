@@ -28,6 +28,7 @@ endfunction "}}}
     NeoBundle 'tpope/vim-dispatch'
     NeoBundle 'tpope/vim-unimpaired'
     NeoBundle 'tpope/vim-speeddating'
+    NeoBundle 'tpope/vim-eunuch'
     NeoBundle 'terryma/vim-expand-region'
     NeoBundle 'bling/vim-bufferline' "{{{
       let g:bufferline_echo = 0
