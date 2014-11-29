@@ -18,27 +18,40 @@ endfunction "}}}
     set runtimepath+=~/.vim/bundle/neobundle.vim/
     call neobundle#begin(expand('~/.vim/bundle/'))
     
+    " a colorscheme
     NeoBundle 'padakuro/vim-hybrid' "{{{
 "      let g:hybrid_use_Xresources = 1
     "}}}
+    
+    " better statusline
     NeoBundle 'bling/vim-airline' "{{{ 
       let g:airline_theme='wombat'
-      let g:airline_powerline_fonts = 1
     "}}}
+
+    " build/test runner
     NeoBundle 'tpope/vim-dispatch'
+
+    " useful mappings
     NeoBundle 'tpope/vim-unimpaired'
-    NeoBundle 'tpope/vim-speeddating'
+
+    " unix helpers, SudoWrite/Locate/Remove/Move...
     NeoBundle 'tpope/vim-eunuch'
+    
+    " smart selection expand/shrink
     NeoBundle 'terryma/vim-expand-region'
+    
+    " show open buffers in the statusline
     NeoBundle 'bling/vim-bufferline' "{{{
       let g:bufferline_echo = 0
     "}}}
+
+    " fuzzy file search and buffer switcher
     NeoBundle 'wincent/command-t' "{{{
       let g:CommandTMaxHeight=13
       let g:CommandTMaxCachedDirectories=100
     "}}}
-    NeoBundle 'scrooloose/nerdcommenter'
 
+    " syntax highlighting
     NeoBundleLazy 'groenewege/vim-less', {'autoload':{'filetypes':['less']}}
     NeoBundleLazy 'cakebaker/scss-syntax.vim', {'autoload':{'filetypes':['scss','sass']}}
     NeoBundleLazy 'hail2u/vim-css3-syntax', {'autoload':{'filetypes':['css','scss','sass']}}
@@ -49,10 +62,12 @@ endfunction "}}}
     NeoBundleLazy 'leshill/vim-json', {'autoload':{'filetypes':['javascript','json']}}
     NeoBundleLazy 'elixir-lang/vim-elixir', {'autoload':{'filetypes':['elixir']}}
 
+    " git: show line markers for added/removed/changed lines
     NeoBundle 'mhinz/vim-signify' "{{{
       let g:signify_update_on_bufenter=0
     "}}}
    
+    " git: git handling from inside of vim
     NeoBundle 'tpope/vim-fugitive' "{{{
       nnoremap <silent> <leader>gs :Gstatus<CR>
       nnoremap <silent> <leader>gd :Gdiff<CR>
@@ -75,6 +90,7 @@ endfunction "}}}
       nnoremap <silent> <F5> :UndotreeToggle<CR>
     "}}}
     
+    " filesystem browser
     NeoBundleLazy 'scrooloose/nerdtree', {'autoload':{'commands':['NERDTreeToggle','NERDTreeFind']}} "{{{
       let NERDTreeShowHidden=1
       let NERDTreeQuitOnOpen=0
@@ -101,8 +117,7 @@ set mousehide " hide mouse while typing
 set history=1000 " command history
 set ttyfast " assume fast terminal connection
 set encoding=utf-8
-" sync with OS clipboard
-set clipboard=unnamedplus
+set clipboard=unnamedplus " sync with OS clipboard
 set hidden " allow buffer switching without saving
 set autoread " auto reload if file saved externally
 set fileformats+=mac " add mac to auto-detection of file format line endings 
@@ -139,14 +154,11 @@ set matchtime=2
 set number " line numbers
 set lazyredraw
 set noshowmode " don't show a status message on the command line in INSERT/VISUAL/... mode
-set foldenable " enable folding
-set foldmethod=syntax
-set foldlevelstart=99 " open all folds by default
 set nowrap " no soft line wrap
+set synmaxcol=192 " limit characters to be syntax highlighted in a line
 
 " status line
 set laststatus=2 " always show the status line
-"hi StatusLine cterm=bold ctermbg=white
 
 " highlight active line
 set cursorline 
