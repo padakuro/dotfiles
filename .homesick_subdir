@@ -6,3 +6,4 @@
 .config/bspwm
 .config/sxhkd
 .config/systemd
+.config
