@@ -29,8 +29,9 @@ export WINEARCH=win32
 export TERM="xterm-256color"
 
 # ruby
-export GEM_HOME=~/.gem/ruby/2.1.0
-export PATH=$PATH:$HOME/.gem/ruby/2.1.0/bin
+rubyVersion=2.2.0
+export GEM_HOME=~/.gem/ruby/${rubyVersion}
+export PATH=$PATH:$HOME/.gem/ruby/${rubyVersion}/bin
 
 # go
 export GOPATH=$HOME/.go
@@ -50,14 +51,4 @@ export PIP_RESPECT_VIRTUALENV=true
 
 # sourcing it always causes delays
 need_virtual_envs() { source /usr/bin/virtualenvwrapper.sh; }
-
-# konsole: map CTRL+left/right to backward/forward word (KDE Konsole)
-bindkey ';5D' emacs-backward-word
-bindkey ';5C' emacs-forward-word
-
-tcsh-backward-word() {
-    local WORDCHARS="${WORDCHARS:s@/@}"
-      zle backward-word
-}
-zle -N tcsh-backward-word
 
