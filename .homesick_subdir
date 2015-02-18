@@ -5,3 +5,4 @@
 .config/termite
 .config/bspwm
 .config/sxhkd
+.config/systemd

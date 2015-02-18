@@ -1,0 +1,11 @@
+[Unit]
+Description=bspwm
+Requires=xorg.service
+After=xorg.service
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=5
+ExecStart=/usr/bin/bspwm 
+

@@ -1,0 +1,16 @@
+[Unit]
+After=sound.target
+Requires=sound.target
+Description=PulseAudio Sound System
+Requires=dbus.socket
+
+[Service]
+Type=dbus
+BusName=org.pulseaudio.Server
+BusName=org.PulseAudio1
+ExecStart=/usr/bin/pulseaudio
+ExecStop=/usr/bin/pulseaudio --kill
+Restart=always
+
+[Install]
+WantedBy=bspwm.service

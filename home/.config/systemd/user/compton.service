@@ -1,0 +1,14 @@
+[Unit]
+Description=Compton simple compositor
+After=xorg.service
+
+[Service]
+Type=simple
+Restart=always
+StartLimitInterval=10
+StartLimitBurst=5
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/compton
+
+[Install]
+WantedBy=bspwm.service
