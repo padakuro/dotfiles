@@ -1,8 +1,8 @@
-#!/usr/bin/env sh
+#!/usr/bin/env zsh
 
 print_section() {
   local name=$1
-  echo -e "\e[1;42m > $name \e[0m"
+  echo -e "\e[30;42m > $name \e[0m"
 }
 
 ensure_directory() {
@@ -33,6 +33,7 @@ check_arch_package "python-virtualenvwrapper"
 
 print_section "additional packages"
 check_arch_package "the_silver_searcher" # improved grep, also used by vim
+check_arch_package "pulseaudio-ctl"
 
 print_section "configuring npm for home-global install"
 npm_prefix=$(grep "^prefix" ~/.npmrc)
