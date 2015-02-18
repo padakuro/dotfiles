@@ -19,13 +19,13 @@ endfunction "}}}
     call neobundle#begin(expand('~/.vim/bundle/'))
     
     " a colorscheme
-    NeoBundle 'padakuro/vim-hybrid' "{{{
-"      let g:hybrid_use_Xresources = 1
+    NeoBundle 'chriskempson/base16-vim' "{{{
+      let base16colorspace=256
     "}}}
     
     " better statusline
     NeoBundle 'bling/vim-airline' "{{{ 
-      let g:airline_theme='wombat'
+      let g:airline_theme='base16'
     "}}}
 
     " build/test runner
@@ -83,7 +83,11 @@ endfunction "}}}
       nnoremap <silent> <leader>gv :Gitv<CR>
       nnoremap <silent> <leader>gV :Gitv!<CR>
     "}}}
-    
+   
+    " auto completer
+    NeoBundle 'Valloric/YouCompleteMe' 
+
+    " undo history browser
     NeoBundleLazy 'mbbill/undotree', {'autoload':{'commands':'UndotreeToggle'}} "{{{
       let g:undotree_SplitLocation='botright'
       let g:undotree_SetFocusWhenToggle=1
@@ -111,7 +115,7 @@ endfunction "}}}
 
 "{{{ base
 
-colorscheme hybrid
+colorscheme base16-default
 set mouse=a " enable mouse
 set mousehide " hide mouse while typing
 set history=1000 " command history
