@@ -1,12 +1,35 @@
-#!/usr/bin/env sh
+#!/usr/bin/env zsh
 
-bspc config border_width 2
-bspc config window_gap 8
+bspc config border_width 1
+bspc config window_gap 7 
 
 bspc config split_ratio 0.52
 bspc config borderless_monocle true
 bspc config gapless_monocle true
 bspc config focus_by_distance true
 
-bspc monitor -d a b c d e f g h i j
+monitors=$(bspc query -M)
+num=$(echo "${monitors}" | wc -l)
+
+i=1
+case "${num}" in
+  "3") # 9 desktops
+    for monitor in ${monitors}; do
+      bspc monitor $monitor -n "$i" -d $i/{a,b,c}
+      let i++
+    done
+    ;;
+
+  "2") # 10 desktops
+    for monitor in ${monitors}; do
+      bspc monitor $monitor -n "$i" -d $i/{a,b,c,d,e}
+      let i++
+    done
+    ;;
+
+  *) # 10 desktops
+    monitor=${monitors}
+    bspc monitor $monitor -n 1 -d 1/{a,b,c,d,e,f,g,h,i,j}
+    ;;
+esac
 
