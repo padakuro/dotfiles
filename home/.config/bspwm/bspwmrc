@@ -1,12 +1,23 @@
 #!/usr/bin/env zsh
 
-bspc config border_width 1
-bspc config window_gap 7 
+bspc config border_width 3 
+bspc config window_gap 5 
 
-bspc config split_ratio 0.52
+bspc config split_ratio 0.5
 bspc config borderless_monocle true
 bspc config gapless_monocle true
 bspc config focus_by_distance true
+
+bspc config focused_border_color \#4274a5
+bspc config active_border_color  \#4274a5
+bspc config normal_border_color  \#222222
+bspc config presel_border_color  \#222222
+
+bspc config focused_locked_border_color \#4274a5
+bspc config active_locked_border_color  \#a54242
+bspc config normal_locked_border_color  \#a54242
+
+bspc config urgent_border_color \#4242a5
 
 monitors=$(bspc query -M)
 num=$(echo "${monitors}" | wc -l)
