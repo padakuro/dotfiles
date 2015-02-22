@@ -22,25 +22,16 @@ bspc config urgent_border_color \#4242a5
 monitors=$(bspc query -M)
 num=$(echo "${monitors}" | wc -l)
 
-i=1
 case "${num}" in
-  "3") # 9 desktops
-    for monitor in ${monitors}; do
-      bspc monitor $monitor -n "$i" -d $i/{a,b,c}
-      let i++
-    done
+  "1") # 10 desktops
+    m=${monitors}
+    bspc monitor ${m} -d ${m}/{a,b,c,d,e,f,g,h,i,j}
     ;;
 
-  "2") # 10 desktops
-    for monitor in ${monitors}; do
-      bspc monitor $monitor -n "$i" -d $i/{a,b,c,d,e}
-      let i++
+  *) # num * 5 desktops
+    for m in ${monitors}; do
+      bspc monitor ${m} -d ${m}/{a,b,c,d,e}
     done
-    ;;
-
-  *) # 10 desktops
-    monitor=${monitors}
-    bspc monitor $monitor -n 1 -d 1/{a,b,c,d,e,f,g,h,i,j}
     ;;
 esac
 

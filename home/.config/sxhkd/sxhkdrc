@@ -1,14 +1,11 @@
 XF86AudioLowerVolume
   pulseaudio-ctl down 10
-#  amixer -D pulse sset Master 5%-
 
 XF86AudioRaiseVolume
   pulseaudio-ctl up 10
-#  amixer -D pulse sset Master 5%+
 
 XF86AudioMute
   pulseaudio-ctl mute
-#  amixer -D pulse set Master Playback Switch toggle
 
 XF86MonBrightnessDown
   sudo backlight.sh down
