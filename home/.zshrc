@@ -17,16 +17,15 @@ alias ledate='date +"%Y%m%d-%H%M"'
 alias ledates='date +"%Y%m%d-%H%M%S"'
 alias rm='rm -I'
 alias sedit='sudoedit'
-alias sfdev='app/console --env=dev'
-alias sfprod='app/console --env=prod'
-alias sftest='app/console --env=test'
-alias gulp='node ./node_modules/gulp/bin/gulp.js'
+alias sctlu='systemctl --user'
+alias sctls='systemctl'
 
 # common stuff
 export EDITOR=vim
 export VISUAL=vim
 export WINEARCH=win32
 export TERM="xterm-256color"
+export BROWSER=chromium
 
 # ruby
 rubyVersion=2.2.0
