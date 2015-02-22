@@ -1,7 +1,6 @@
 [Unit]
-Description=bspwm
-Requires=xorg.service
-After=xorg.service
+Requires=xorg@0.service
+After=xorg@0.service
 
 [Service]
 Type=simple

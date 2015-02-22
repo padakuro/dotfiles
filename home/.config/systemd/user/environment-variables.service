@@ -1,0 +1,2 @@
+[Service]
+ExecStart=/usr/bin/xargs systemctl --user set-environment < %h/.envVariables

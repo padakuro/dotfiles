@@ -1,0 +1,10 @@
+[Unit]
+Requires=environment.target
+After=environment.target
+Wants=bspwm.service
+Wants=compton.service
+Wants=sxhkd.service
+Wants=pulseaudio.service
+
+[Install]
+Alias=graphical.target
