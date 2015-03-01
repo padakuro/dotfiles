@@ -30,7 +30,7 @@ export BROWSER=chromium
 # ruby
 rubyVersion=2.2.0
 export GEM_HOME=~/.gem/ruby/${rubyVersion}
-export PATH=$PATH:$HOME/.gem/ruby/${rubyVersion}/bin
+PATH=$PATH:$HOME/.gem/ruby/${rubyVersion}/bin
 
 # go
 export GOPATH=$HOME/.go
@@ -40,7 +40,7 @@ export VIRSH_DEFAULT_CONNECT_URI=qemu:///system
 
 # node: global npm packages should be local for every user and not conflict with system installed npm packagesi
 export NPM_PACKAGES="$HOME/.npm-packages"
-export PATH="$NPM_PACKAGES/bin:$PATH"
+PATH="$NPM_PACKAGES/bin:$PATH"
 export NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
 
 # python virtual envs
@@ -51,3 +51,10 @@ export PIP_RESPECT_VIRTUALENV=true
 # sourcing it always causes delays
 need_virtual_envs() { source /usr/bin/virtualenvwrapper.sh; }
 
+# home scripts
+PATH="${HOME}/.bin:${PATH}"
+
+# bspwm
+export _JAVA_AWT_WM_NONREPARENTING=1
+
+export PATH
