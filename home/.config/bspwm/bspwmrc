@@ -35,3 +35,5 @@ case "${num}" in
     ;;
 esac
 
+# spacing for default kde5 panel height + gap
+bspc config bottom_padding 32
