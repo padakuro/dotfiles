@@ -7,3 +7,4 @@
 .config/sxhkd
 .config/systemd
 .config
+.config/plasma-workspace/env
