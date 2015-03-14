@@ -1,6 +1,6 @@
-[submodule "home/.zprezto"]
-	path = home/.zprezto
+[submodule "zsh/.zprezto"]
+	path = zsh/.zprezto
 	url = https://github.com/padakuro/prezto
-[submodule "home/.vim/bundle/neobundle.vim"]
-	path = home/.vim/bundle/neobundle.vim
+[submodule "vim/.vim/bundle/neobundle.vim"]
+	path = vim/.vim/bundle/neobundle.vim
 	url = https://github.com/Shougo/neobundle.vim

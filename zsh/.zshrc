@@ -17,8 +17,6 @@ alias ledate='date +"%Y%m%d-%H%M"'
 alias ledates='date +"%Y%m%d-%H%M%S"'
 alias rm='rm -I'
 alias sedit='sudoedit'
-alias sctlu='systemctl --user'
-alias sctls='systemctl'
 
 # common stuff
 export EDITOR=vim
