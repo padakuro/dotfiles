@@ -5,10 +5,10 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
-#
-# Browser
-#
-export BROWSER='chromium'
+export TERM=xterm-256color
+
+# home scripts
+export PATH="${HOME}/.bin:${PATH}"
 
 #
 # Editors
@@ -57,4 +57,8 @@ TMPPREFIX="${TMPDIR%/}/zsh"
 if [[ ! -d "$TMPPREFIX" ]]; then
   mkdir -p "$TMPPREFIX"
 fi
+
+for rcfile in "${ZDOTDIR:-$HOME}"/.zsh/zprofile*(N); do
+  source "${rcfile}"
+done
 

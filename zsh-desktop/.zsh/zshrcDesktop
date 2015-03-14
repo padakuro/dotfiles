@@ -1,0 +1,4 @@
+export WINEARCH=win32
+export TERM="xterm-256color"
+export BROWSER=chromium
+
