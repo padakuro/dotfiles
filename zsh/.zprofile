@@ -5,8 +5,6 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
-export TERM=xterm-256color
-
 # home scripts
 export PATH="${HOME}/.bin:${PATH}"
 

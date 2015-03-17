@@ -7,6 +7,8 @@ fi
 HISTSIZE=100000
 SAVEHIST=100000
 
+export TERM=xterm-256color
+
 # zsh: aliases
 alias ls='ls -h --color=auto'
 alias ll='ls -l'
