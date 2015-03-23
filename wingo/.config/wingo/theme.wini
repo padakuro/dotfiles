@@ -1,21 +1,21 @@
 $THIN_COLOR := 0x585a5d
+$ACTIVE := 0xb5bd68
 
 [Full]
 font := /usr/share/fonts/TTF/DejaVuSansMono-Bold.ttf
 font_size := 12
-a_font_color := 0xffffff
-i_font_color := 0x000000
-
 title_size := 18
-a_title_color := 0xd66b00 0xff9123
-i_title_color := 0xffffff
-
 border_size := 3
+
+a_font_color := 0x000000
+a_title_color := $ACTIVE 0xb5cf68
 a_border_color := $THIN_COLOR
+i_font_color := 0xffffff
+i_title_color := 0x000000
 i_border_color := $THIN_COLOR
 
-$ACTIVE_BUTTON := 0xffffff
-$INACTIVE_BUTTON := 0x000000
+$ACTIVE_BUTTON := 0x000000
+$INACTIVE_BUTTON := 0xffffff
 
 close := ./data/close.png
 a_close_color := $ACTIVE_BUTTON
@@ -33,8 +33,8 @@ i_minimize_color := $INACTIVE_BUTTON
 border_size := 3
 a_thin_color := $THIN_COLOR
 i_thin_color := $THIN_COLOR
-a_border_color := 0xff7f00
-i_border_color := 0xdfdcdf
+a_border_color := $ACTIVE
+i_border_color := 0x000000
 
 [Slim]
 border_size := 1
