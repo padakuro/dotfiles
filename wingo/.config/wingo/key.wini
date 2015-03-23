@@ -9,7 +9,7 @@ Mod4-return := Shell "termite"
 Mod4-space := Shell "dmenu_run"
 
 Mod4-c := Close (GetActive)
-Mod4-Alt-escape := Quit
+Mod4-Mod1-escape := Quit
 Mod4-w := ToggleMaximize (GetActive)
 Mod4-f := ToggleFloating (GetActive)
 Mod4-s := ToggleSticky (GetActive)
