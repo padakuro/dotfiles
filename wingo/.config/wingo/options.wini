@@ -1,6 +1,6 @@
 [Options]
-workspaces := host browser common
-default_layout := Vertical
+workspaces := stuff main commedia
+default_layout := Floating
 focus_follows_mouse := no
 focus_follows_mouse_focus := yes
 focus_follows_mouse_raise := no

@@ -1,79 +1,40 @@
 [Global]
-XF86AudioMute := Shell "pulseaudio-ctl mute"
-XF86AudioLowerVolume := Shell "pulseaudio-ctl down 10"
-XF86AudioRaiseVolume := Shell "pulseaudio-ctl up 10"
-XF86MonBrightnessDown := Shell "sudo backlight.sh down"
-XF86MonBrightnessUp := Shell "sudo backlight.sh up"
+XF86AudioMute           := Shell "pulseaudio-ctl mute"
+XF86AudioLowerVolume    := Shell "pulseaudio-ctl down 10"
+XF86AudioRaiseVolume    := Shell "pulseaudio-ctl up 10"
+XF86MonBrightnessDown   := Shell "sudo backlight.sh down"
+XF86MonBrightnessUp     := Shell "sudo backlight.sh up"
 
-Mod4-return := Shell "termite"
-Mod4-space := Shell "dmenu_run"
+Mod4-return             := Shell "termite"
+Mod4-space              := Shell "dmenu_run"
 
-Mod4-c := Close (GetActive)
-Mod4-Mod1-escape := Quit
-Mod4-w := ToggleMaximize (GetActive)
-Mod4-f := ToggleFloating (GetActive)
-Mod4-s := ToggleSticky (GetActive)
+Mod4-Shift-q            := WorkspaceSendClient (GetWorkspacePrev) (GetActive)
+Mod4-Shift-e            := WorkspaceSendClient (GetWorkspaceNext) (GetActive)
 
-Mod4-Shift-r := WingoExec (Input "Wingo command:")
-Mod4-Shift-h := WingoHelp (Input "Wingo command name:")
-Mod4-Shift-l := SetLayout (GetWorkspace) (Input "Layout name:")
-Mod4-BackSpace := RemoveWorkspace (GetWorkspace)
-Mod4-Shift-a := Workspace (AddWorkspace (Input "New workspace name:"))
-Mod4-q := Workspace (GetWorkspacePrev)
-Mod4-e := Workspace (GetWorkspaceNext)
-Mod4-Shift-q := WorkspaceWithClient (GetWorkspacePrev) (GetActive)
-Mod4-Shift-e := WorkspaceWithClient (GetWorkspaceNext) (GetActive)
-
-Mod4-1 := WorkspaceGreedy "host"
-Mod4-2 := WorkspaceGreedy "browser"
-Mod4-3 := WorkspaceGreedy "common"
-
-Mod4-Shift-1 := WorkspaceGreedyWithClient "host" (GetActive)
-Mod4-Shift-2 := WorkspaceGreedyWithClient "browser" (GetActive)
-Mod4-Shift-3 := WorkspaceGreedyWithClient "common" (GetActive)
-
-Mod1-w := HeadFocus 0
-Mod1-w := MovePointerRelative 0 0
-Mod1-e := HeadFocus 1
-Mod1-e := MovePointerRelative 0 0
-Mod1-r := HeadFocus 2
-Mod1-r := MovePointerRelative 0 0
-
-Mod1-Shift-w := HeadFocusWithClient 0 (GetActive)
-Mod1-Shift-w := MovePointerRelative 0 0
-Mod1-Shift-e := HeadFocusWithClient 1 (GetActive)
-Mod1-Shift-e := MovePointerRelative 0 0
-Mod1-Shift-r := HeadFocusWithClient 2 (GetActive)
-Mod1-Shift-r := MovePointerRelative 0 0
-
-Mod4-Tab := CycleClientNext "yes" "no" "yes"
-Mod4-Shift-Tab := CycleClientPrev "yes" "no" "yes"
-
-# List all windows and focus/raise the selected client.
-#Mod4-space := FocusRaise (SelectClient "Any" "no" "no" "yes")
-
-# List all workspaces, and greedily switch to the one selected.
-#Mod4-return := WorkspaceGreedy (SelectWorkspace "Prefix")
-
-# List all workspaces, and greedily switch to the one selected with the
-# active window.
-#Mod4-Shift-return := WorkspaceGreedyWithClient \
-#                       (SelectWorkspace "Prefix") \
-#                       (GetActive)
-
-Mod4-Control-a := AutoTile (GetWorkspace)
-Mod4-Control-u := AutoUntile (GetWorkspace)
-#Mod4-y := AutoCycle (GetWorkspace)
-Mod4-Control-h := AutoResizeMaster (GetWorkspace) -0.02
-Mod4-Control-l := AutoResizeMaster (GetWorkspace) 0.02
-Mod4-Control-j := AutoResizeWindow (GetWorkspace) -0.02
-Mod4-Control-k := AutoResizeWindow (GetWorkspace) 0.02
-Mod4-l := AutoNext (GetWorkspace)
-Mod4-h := AutoPrev (GetWorkspace)
-#Mod1-Shift-k := AutoSwitchNext (GetWorkspace)
-#Mod1-Shift-j := AutoSwitchPrev (GetWorkspace)
-#Mod1-m := AutoMaster (GetWorkspace)
-#Mod1-Shift-return := AutoMakeMaster (GetWorkspace)
-#Mod1-comma := AutoMastersFewer (GetWorkspace)
-#Mod1-period := AutoMastersMore (GetWorkspace)
+Mod4-c                  := Close (GetActive)
+Mod4-Mod1-escape        := Quit
+Mod4-w                  := ToggleMaximize (GetActive)
+Mod4-f                  := ToggleFloating (GetActive)
+Mod4-s                  := ToggleSticky (GetActive)
+Mod4-Shift-r            := WingoExec (Input "Wingo command:")
+Mod4-Shift-h            := WingoHelp (Input "Wingo command name:")
+Mod4-Shift-l            := SetLayout (GetWorkspace) (Input "Layout name:")
+Mod4-BackSpace          := RemoveWorkspace (GetWorkspace)
+Mod4-Shift-a            := Workspace (AddWorkspace (Input "New workspace name:"))
+Mod4-q                  := Workspace (GetWorkspacePrev)
+Mod4-e                  := Workspace (GetWorkspaceNext)
+Mod4-Shift-q            := WorkspaceWithClient (GetWorkspacePrev) (GetActive)
+Mod4-Shift-e            := WorkspaceWithClient (GetWorkspaceNext) (GetActive)
+Mod4-Tab                := CycleClientNext "yes" "no" "yes"
+Mod4-Shift-Tab          := CycleClientPrev "yes" "no" "yes"
+Mod4-Control-a          := AutoTile (GetWorkspace)
+Mod4-Control-u          := AutoUntile (GetWorkspace)
+Mod4-Control-h          := AutoResizeMaster (GetWorkspace) -0.02
+Mod4-Control-l          := AutoResizeMaster (GetWorkspace) 0.02
+Mod4-Control-j          := AutoResizeWindow (GetWorkspace) -0.02
+Mod4-Control-k          := AutoResizeWindow (GetWorkspace) 0.02
+Mod4-l                  := AutoNext (GetWorkspace)
+Mod4-h                  := AutoPrev (GetWorkspace)
+Mod4-circumflex         := WorkspaceGreedy (SelectWorkspace "Prefix")
+Mod4-dead_circumflex    := WorkspaceGreedy (SelectWorkspace "Prefix")
 
