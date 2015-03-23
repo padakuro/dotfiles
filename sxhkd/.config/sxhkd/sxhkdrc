@@ -13,55 +13,26 @@ XF86MonBrightnessDown
 XF86MonBrightnessUp
   sudo backlight.sh up
 
+super + tab
+  bspc window -f next
+
 super + alt + Escape
   bspc quit
 
-super + w
+super + alt + l
+  dm-tool lock
+
+super + c
   bspc window -c
-
-super + t
-  bspc desktop -l next
-
-super + b
-  bspc desktop -B
 
 super + {s,f}
   bspc window -t {floating,fullscreen}
 
-super + {grave,Tab}
-  bspc {window,desktop} -f last
-
-super + apostrophe
-  bspc window -s last
-
-super + {o,i}
-  bspc control --record-history off; \
-  bspc window {older,newer} -f; \
-  bspc control --record-history on
-
-super + y
-  bspc window -w last.manual
-
-super + m
-  bspc window -s biggest
-
 super + {_,shift + }{h,j,k,l}
   bspc window -{f,s} {left,down,up,right}
 
-super + {_,shift + }c
-  bspc window -f {next,prev}
-
-super + {comma,period}
-  bspc desktop -C {backward,forward}
-
-super + bracket{left,right}
-  bspc desktop -f {prev,next}
-
 super + ctrl + {h,j,k,l}
   bspc window -p {left,down,up,right}
-
-super + ctrl + {_,shift + }space
-  bspc {window -p cancel,desktop -c}
 
 super + alt + {h,j,k,l}
   bspc window -e {left -10,down +10,up -10,right +10}
