@@ -19,13 +19,15 @@ endfunction "}}}
     call neobundle#begin(expand('~/.vim/bundle/'))
     
     " a colorscheme
-    NeoBundle 'chriskempson/base16-vim' "{{{
-      let base16colorspace=256
-    "}}}
+    NeoBundle 'w0ng/vim-hybrid'
     
     " better statusline
     NeoBundle 'bling/vim-airline' "{{{ 
       let g:airline_theme='base16'
+      let g:airline_left_sep = ''
+      let g:airline_left_sep_alt = ''
+      let g:airline_right_sep = ''
+      let g:airline_right_sep_alt = ''
     "}}}
 
     " build/test runner
@@ -115,7 +117,7 @@ endfunction "}}}
 
 "{{{ base
 
-colorscheme base16-default
+colorscheme hybrid
 set mouse=a " enable mouse
 set mousehide " hide mouse while typing
 set history=1000 " command history
