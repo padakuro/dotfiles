@@ -1,1 +1,8 @@
 /vim/.vim/
+/emacs/.emacs.d/elpa
+/emacs/.emacs.d/tramp
+/emacs/.emacs.d/places
+/emacs/.emacs.d/.places
+/emacs/.emacs.d/auto-save-list
+/emacs/.emacs.d/session*
+/emacs/.emacs.d/projectile*
