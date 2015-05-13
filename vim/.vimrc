@@ -180,6 +180,9 @@ autocmd WinEnter * setlocal cursorcolumn
 set grepprg=ag\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow
 set grepformat=%f:%l:%c:%m
 
+" remove background color and use the terminal bg
+hi Normal ctermbg=none
+
 " file management
 set undofile
 let &undodir = s:get_cache_dir('undo')
