@@ -2,7 +2,7 @@
 
 set all& "reset everything to their defaults
 set nocompatible "iMproved
-set background=dark
+set background=light
 
 let mapleader=","
 
@@ -86,9 +86,6 @@ endfunction "}}}
       nnoremap <silent> <leader>gV :Gitv!<CR>
     "}}}
    
-    " auto completer
-    NeoBundle 'Valloric/YouCompleteMe' 
-
     " undo history browser
     NeoBundleLazy 'mbbill/undotree', {'autoload':{'commands':'UndotreeToggle'}} "{{{
       let g:undotree_SplitLocation='botright'
@@ -109,7 +106,10 @@ endfunction "}}}
       nnoremap <F2> :NERDTreeToggle<CR>
       nnoremap <F3> :NERDTreeFind<CR>
     "}}}
-    
+
+    " fuzzy finder
+    NeoBundle 'kien/ctrlp.vim'
+  
     call neobundle#end()
     filetype plugin indent on 
 
@@ -162,6 +162,10 @@ set lazyredraw
 set noshowmode " don't show a status message on the command line in INSERT/VISUAL/... mode
 set nowrap " no soft line wrap
 set synmaxcol=192 " limit characters to be syntax highlighted in a line
+syntax on
+
+" enable autocompletion
+set omnifunc=syntaxcomplete#Complete
 
 " status line
 set laststatus=2 " always show the status line
@@ -208,3 +212,23 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 " https://github.com/tpope/vim-markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
+" fuzzy file search
+" http://stackoverflow.com/questions/2372307/opening-files-in-vim-using-fuzzy-search
+if executable('ag')
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+
+nnoremap bl :CtrlPBuffer
+
+" new buffer
+nnoremap bc :enew<CR>
+
+" move to the next buffer
+nnoremap bn :bnext<CR>
+
+" move to the previous buffer
+nnoremap bp :bprevious<CR>
