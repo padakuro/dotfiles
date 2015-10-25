@@ -202,3 +202,5 @@
 ;; git revert selection
 
 (cua-mode 1)
+
+(set-frame-font "DejaVu Sans Mono-13")
