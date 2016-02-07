@@ -22,8 +22,8 @@ endfunction "}}}
     NeoBundle 'w0ng/vim-hybrid'
 
     " better statusline
-    NeoBundle 'bling/vim-airline-themes'
-    NeoBundle 'bling/vim-airline' "{{{
+    NeoBundle 'vim-airline/vim-airline-themes'
+    NeoBundle 'vim-airline/vim-airline' "{{{
       let g:airline_theme='base16'
       let g:airline_left_sep = ''
       let g:airline_left_sep_alt = ''
