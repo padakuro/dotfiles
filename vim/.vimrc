@@ -17,12 +17,12 @@ endfunction "}}}
 
     set runtimepath+=~/.vim/bundle/neobundle.vim/
     call neobundle#begin(expand('~/.vim/bundle/'))
-    
+
     " a colorscheme
     NeoBundle 'w0ng/vim-hybrid'
-    
+
     " better statusline
-    NeoBundle 'bling/vim-airline' "{{{ 
+    NeoBundle 'bling/vim-airline' "{{{
       let g:airline_theme='base16'
       let g:airline_left_sep = ''
       let g:airline_left_sep_alt = ''
@@ -38,10 +38,10 @@ endfunction "}}}
 
     " unix helpers, SudoWrite/Locate/Remove/Move...
     NeoBundle 'tpope/vim-eunuch'
-    
+
     " smart selection expand/shrink
     NeoBundle 'terryma/vim-expand-region'
-    
+
     " show open buffers in the statusline
     NeoBundle 'bling/vim-bufferline' "{{{
       let g:bufferline_echo = 0
@@ -68,7 +68,7 @@ endfunction "}}}
     NeoBundle 'mhinz/vim-signify' "{{{
       let g:signify_update_on_bufenter=0
     "}}}
-   
+
     " git: git handling from inside of vim
     NeoBundle 'tpope/vim-fugitive' "{{{
       nnoremap <silent> <leader>gs :Gstatus<CR>
@@ -85,14 +85,14 @@ endfunction "}}}
       nnoremap <silent> <leader>gv :Gitv<CR>
       nnoremap <silent> <leader>gV :Gitv!<CR>
     "}}}
-   
+
     " undo history browser
     NeoBundleLazy 'mbbill/undotree', {'autoload':{'commands':'UndotreeToggle'}} "{{{
       let g:undotree_SplitLocation='botright'
       let g:undotree_SetFocusWhenToggle=1
       nnoremap <silent> <F5> :UndotreeToggle<CR>
     "}}}
-    
+
     " filesystem browser
     NeoBundleLazy 'scrooloose/nerdtree', {'autoload':{'commands':['NERDTreeToggle','NERDTreeFind']}} "{{{
       let NERDTreeShowHidden=1
@@ -109,9 +109,9 @@ endfunction "}}}
 
     " fuzzy finder
     NeoBundle 'kien/ctrlp.vim'
-  
+
     call neobundle#end()
-    filetype plugin indent on 
+    filetype plugin indent on
 
 "}}}
 
@@ -126,7 +126,7 @@ set encoding=utf-8
 set clipboard=unnamedplus " sync with OS clipboard
 set hidden " allow buffer switching without saving
 set autoread " auto reload if file saved externally
-set fileformats+=mac " add mac to auto-detection of file format line endings 
+set fileformats+=mac " add mac to auto-detection of file format line endings
 set nrformats-=octal " always assume decimal numbers
 set showfulltag
 set modeline " enable modeline support
@@ -143,7 +143,7 @@ set shiftround " align indents to multiples of shiftwidth
 set linebreak
 let &showbreak='↪ '
 set scrolloff=1 " always show scroll content before/after
-set scrolljump=5 " scroll 5 lines 
+set scrolljump=5 " scroll 5 lines
 set splitbelow " split new windows below the current window
 set splitright " splite new windows right to the current window
 set noerrorbells " disable error sounds
@@ -171,12 +171,12 @@ set omnifunc=syntaxcomplete#Complete
 set laststatus=2 " always show the status line
 
 " highlight active line
-set cursorline 
+set cursorline
 autocmd WinLeave * setlocal nocursorline
 autocmd WinEnter * setlocal cursorline
 
 " highlight cursor column
-set cursorcolumn 
+set cursorcolumn
 autocmd WinLeave * setlocal nocursorcolumn
 autocmd WinEnter * setlocal cursorcolumn
 
