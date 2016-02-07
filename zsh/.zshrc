@@ -1,26 +1,18 @@
-# source prezto
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-fi
+# load the plugin manager and plugins
+source ~/.zsh/zplug/zplug
 
-# zsh: command history
-HISTSIZE=100000
-SAVEHIST=100000
+zplug "zsh-users/zsh-history-substring-search"
+zplug "mafredri/zsh-async" \
+  | zplug "sindresorhus/pure"
+zplug "mollifier/anyframe"
+zplug "willghatch/zsh-cdr"
+zplug "zsh-users/zsh-completions"
+zplug "felixr/docker-zsh-completion"
+zplug "b4b4r07/enhancd", of:enhancd.sh
+zplug "zsh-users/zsh-syntax-highlighting", nice:10
+zplug load
 
-export TERM=xterm-256color
-
-# zsh: aliases
-alias ls='ls -h --color=auto'
-alias ll='ls -l'
-alias lla='ll -a'
-alias tree='tree -C'
-alias less='/usr/share/vim/vim74/macros/less.sh'
-alias ledate='date +"%Y%m%d-%H%M"'
-alias ledates='date +"%Y%m%d-%H%M%S"'
-alias rm='rm -I'
-alias sedit='sudoedit'
-
-for rcfile in "${ZDOTDIR:-$HOME}"/.zsh/zshrc*(N); do
+# load custom configs
+for rcfile in "${ZDOTDIR:-$HOME}"/.zsh/*.zshrc; do
   source "${rcfile}"
 done
-

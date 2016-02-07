@@ -1,5 +1,0 @@
-if [ -z "${GOPATH}" ]; then
-  export GOPATH=$HOME/.go
-else
-  export GOPATH=$GOPATH:$HOME/.go
-fi
