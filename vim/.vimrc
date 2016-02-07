@@ -2,7 +2,7 @@
 
 set all& "reset everything to their defaults
 set nocompatible "iMproved
-set background=light
+set background=dark
 
 let mapleader=","
 
@@ -22,6 +22,7 @@ endfunction "}}}
     NeoBundle 'w0ng/vim-hybrid'
 
     " better statusline
+    NeoBundle 'bling/vim-airline-themes'
     NeoBundle 'bling/vim-airline' "{{{
       let g:airline_theme='base16'
       let g:airline_left_sep = ''
