@@ -1,0 +1,8 @@
+alias ls='ls -h --color=auto'
+alias ll='ls -l'
+alias lla='ll -a'
+alias tree='tree -h -C'
+alias ledate='date +"%Y%m%d-%H%M"'
+alias ledates='date +"%Y%m%d-%H%M%S"'
+alias rm='rm -I'
+alias sedit='sudoedit'

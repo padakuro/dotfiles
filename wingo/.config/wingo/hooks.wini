@@ -1,0 +1,14 @@
+[ForceFloating]
+match := MatchClientClass ":client:" "gimp"
+conjunction := no
+managed := Float ":client:"
+
+[FocusTransparency]
+match := True
+focused := SetOpacity ":client:" 1.0
+unfocused := SetOpacity ":client:" 0.85
+
+[StupidKDE]
+match := MatchClientClass ":client:" "ksplashx"
+managed := FrameNada ":client:"
+
