@@ -1,4 +1,7 @@
 /vim/.vim/
+/nvim/.config/nvim/.init.*
+/nvim/.config/nvim/.netrwhist
+
 /emacs/.emacs.d/elpa
 /emacs/.emacs.d/tramp
 /emacs/.emacs.d/places
@@ -6,3 +9,11 @@
 /emacs/.emacs.d/auto-save-list
 /emacs/.emacs.d/session*
 /emacs/.emacs.d/projectile*
+
+/gnupg/.gnupg/crls.d/
+/gnupg/.gnupg/private-keys-v1.d/
+/gnupg/.gnupg/pubring.*
+/gnupg/.gnupg/random_seed
+/gnupg/.gnupg/reader*
+/gnupg/.gnupg/sshcontrol
+/gnupg/.gnupg/trustdb.gpg
