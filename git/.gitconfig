@@ -1,5 +1,13 @@
 [user]
 	name = Pascal Kuendig
 	email = padakuro@gmail.com
-[color]
-	ui = auto
+[help]
+	autocorrect = 1
+[pull]
+	default = current
+[push]
+	default = current
+[rebase]
+	stat = 1
+[status]
+	short = 1
