@@ -10,6 +10,7 @@ zplug "zsh-users/zsh-completions"
 zplug "felixr/docker-zsh-completion"
 zplug "b4b4r07/enhancd", of:enhancd.sh
 zplug "zsh-users/zsh-syntax-highlighting", nice:10
+zplug "${HOME}/.zsh/plugins", from:local
 zplug load
 
 # load custom configs
