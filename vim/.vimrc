@@ -1,5 +1,7 @@
 " inspired by https://github.com/bling/dotvim
 
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
 set all& "reset everything to their defaults
 set nocompatible "iMproved
 set background=dark
