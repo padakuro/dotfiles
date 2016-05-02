@@ -4,7 +4,7 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 set all& "reset everything to their defaults
 set nocompatible "iMproved
-set background=dark
+set background=light
 
 let mapleader=","
 
@@ -21,7 +21,7 @@ endfunction "}}}
     call neobundle#begin(expand('~/.vim/bundle/'))
 
     " a colorscheme
-    NeoBundle 'w0ng/vim-hybrid'
+    NeoBundle 'chriskempson/base16-vim'
 
     " better statusline
     NeoBundle 'vim-airline/vim-airline-themes'
@@ -120,7 +120,7 @@ endfunction "}}}
 
 "{{{ base
 
-colorscheme hybrid
+colorscheme base16-google
 set mouse=a " enable mouse
 set mousehide " hide mouse while typing
 set history=1000 " command history
