@@ -1,1 +1,1 @@
-export SSH_AUTH_SOCK="${HOME}/.gnupg/S.gpg-agent.ssh"
+export SSH_AUTH_SOCK="/run/user/$(id -u)/gnupg/S.gpg-agent.ssh"
