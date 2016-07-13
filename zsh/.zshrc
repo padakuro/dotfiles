@@ -17,3 +17,4 @@ zplug load
 for rcfile in "${ZDOTDIR:-$HOME}"/.zsh/*.zshrc; do
   source "${rcfile}"
 done
+unset rcfile

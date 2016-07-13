@@ -1,0 +1,27 @@
+#!/usr/bin/env zsh
+
+text_write() {
+  local file="$1"; shift
+  local content="$@"
+
+  if [ "${DOTFILES_DRY_RUN}" != "" ]; then
+    log_dry "write file: ^${content}^ into ${file}"
+    return 0
+  fi
+
+  log_info "Writing file:" "${file}"
+  echo "${content}" >! ${file}
+}
+
+text_append() {
+  local file="$1"; shift
+  local content="$@"
+
+  if [ "${DOTFILES_DRY_RUN}" != "" ]; then
+    log_dry "append to file: ^${content}^ into ${file}"
+    return 0
+  fi
+
+  log_info "Appending to file:" "${file}"
+  echo "${content}" >> ${file}
+}
