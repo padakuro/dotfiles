@@ -19,6 +19,7 @@ git clone https://github.com/padakuro/dotfiles.git ~/.dotfiles
 ~/.dotfiles/dotfiles/dotfiles.sh init
 
 # setup X
+~/.dotfiles/dotfiles/dotfiles.sh setup dotfiles
 ~/.dotfiles/dotfiles/dotfiles.sh setup zsh
 ~/.dotfiles/dotfiles/dotfiles.sh setup nvim
 ~/.dotfiles/dotfiles/dotfiles.sh setup gnupg
