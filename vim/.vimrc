@@ -26,7 +26,7 @@ endfunction "}}}
     " better statusline
     NeoBundle 'vim-airline/vim-airline-themes'
     NeoBundle 'vim-airline/vim-airline' "{{{
-      let g:airline_theme='base16'
+      let g:airline_theme='solarized'
       let g:airline_left_sep = ''
       let g:airline_left_sep_alt = ''
       let g:airline_right_sep = ''
@@ -120,7 +120,7 @@ endfunction "}}}
 
 "{{{ base
 
-colorscheme base16-google
+colorscheme base16-solarized
 set mouse=a " enable mouse
 set mousehide " hide mouse while typing
 set history=1000 " command history
@@ -152,7 +152,6 @@ set splitright " splite new windows right to the current window
 set noerrorbells " disable error sounds
 set novisualbell
 set t_vb= " clear visual bell
-set t_Co=256 " tell vim that the host terminal supports 256 colors
 set t_ut= " disable clear BCE http://sunaku.github.io/vim-256color-bce.html
 set hlsearch " highlight searches
 set incsearch " incremental searches
