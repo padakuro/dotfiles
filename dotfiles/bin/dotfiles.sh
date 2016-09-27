@@ -51,7 +51,7 @@ cmd_git() {
 }
 
 cmd_setup() {
-  local what="$1"
+  local what="$1"; shift
 
   if [ "${what}" = "" ]; then
     log_error "No target specified"
@@ -64,7 +64,7 @@ cmd_setup() {
 
   local setupScript="${whatRoot}/setup.sh"
   if [ -f "${setupScript}" ]; then
-    DOTFILES_SELF_ROOT="${whatRoot}" ${setupScript}
+    DOTFILES_SELF_ROOT="${whatRoot}" ${setupScript} "$@"
     log_section_end "Done"
     return 0
   fi
