@@ -1,0 +1,97 @@
+#!/usr/bin/env zsh
+
+symlink_files() {
+  local dir="$1"
+  local root="${2:-$dir}"
+
+  # strip everything up to the leading slash below
+  if [ "${root: -1:1}" != "/" ]; then
+    root="${root}/"
+  fi
+
+  log_section_begin "Symlink files in: ${dir}"
+
+  local src
+  local dst
+  local rel
+  local abs
+  local srcHash
+  local dstHash
+  for src in $(find "${dir}" -maxdepth 1 -type f -not -name "setup.sh"); do
+    rel="${src#$root}"
+    dst="${DOTFILES_HOME}/${rel}"
+
+    if [ -L "${dst}" ]; then
+      abs="$(readlink -f "${dst}")"
+      if [ "${abs}" = "${src}" ]; then
+        log_debug "Skipping, already symlinked:" "${rel}"
+        continue
+      fi
+
+      log_warning "Skipping, already exists:" "${rel}"
+
+      continue
+    fi
+
+    if [ -f "${dst}" ]; then
+      srcHash=$(sha512sum "${src}" | cut -d" " -f1)
+      dstHash=$(sha512sum "${dst}" | cut -d" " -f1)
+
+      if [ "${dstHash}" != "${srcHash}" ]; then
+        log_warning "Skipping, already exists:" "${rel}"
+        continue
+      fi
+
+      rm "${dst}"
+    fi
+
+    log_info "Symlink:" "${rel} -> ${dst}"
+    ${DOTFILES_DRY_RUN} ln -s "${src}" "${dst}"
+  done
+
+  log_section_end
+}
+
+symlink_directory() {
+  local src="$1"
+  local root="${2:-$src}"
+
+  # strip everything up to the leading slash below
+  if [ "${root: -1:1}" != "/" ]; then
+    root="${root}/"
+  fi
+
+  local rel="${src#$root}"
+  local dst="${DOTFILES_HOME}/${rel}"
+
+  if [ -L "${dst}" ]; then
+    abs="$(readlink -f "${dst}")"
+    if [ "${abs}" = "${src}" ]; then
+      log_debug "Skipping, already symlinked:" "${rel}"
+      return 1
+    fi
+
+    log_warning "Skipping, already exists:" "${rel}"
+
+    return 1
+  fi
+
+  local base="$(dirname "${dst}")"
+  if [ ! -d "${base}" ]; then
+    ${DOTFILES_DRY_RUN} mkdir -p "${base}"
+  fi
+
+  log_info "Symlink:" "${rel} -> ${dst}"
+  ${DOTFILES_DRY_RUN} ln -s "${src}" "${dst}"
+}
+
+symlink_recursive() {
+  local dir="$1"
+  local root="${2:-$dir}"
+
+  # go through all directories, bottom-up, and symlink all files
+  local src
+  for src in $(find "${dir}" -depth -type d); do
+    symlink_files "${src}" "${root}"
+  done
+}

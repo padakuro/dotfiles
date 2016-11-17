@@ -1,0 +1,67 @@
+#!/usr/bin/env zsh
+
+export _LOG_INDENT_LEVEL=${_LOG_INDENT_LEVEL:-0}
+
+log_section_begin() {
+  _log_prefix ">";
+  echo -e "\e[30;42m${1}\e[0m";
+  _log_indent_inc
+}
+
+log_section_end() {
+  _log_indent_dec
+  if [ "$1" != "" ]; then
+    _log_prefix "<";
+    echo -e "\e[30;42m${1}\e[0m";
+  fi
+}
+
+log_info() {
+  _log_prefix "I"
+  echo -e "\e[0;36m${1}\e[0m ${2}"
+}
+
+log_warning() {
+  _log_prefix "W"
+  echo -e "\e[0;33m${1}\e[0m ${2}"
+}
+
+log_error() {
+  _log_prefix "E"
+  echo -e "\e[0;31m${1}\e[0m ${2}"
+}
+
+log_debug() {
+  if [ "${DOTFILES_DEBUG}" = "" ]; then
+    return 0
+  fi
+
+  _log_prefix "D"
+  echo -e "${1} ${2}"
+}
+
+log_dry() {
+  _log_prefix "$"
+  echo "DRY: $@"
+}
+
+_log_indent() {
+  printf " %.0s" $(seq ${_LOG_INDENT_LEVEL})
+}
+
+_log_indent_inc() {
+  _LOG_INDENT_LEVEL=$((_LOG_INDENT_LEVEL + 3))
+}
+
+_log_indent_dec() {
+  _LOG_INDENT_LEVEL=$((_LOG_INDENT_LEVEL - 3))
+
+  if [ ${_LOG_INDENT_LEVEL} -lt 0 ]; then
+    _LOG_INDENT_LEVEL=0
+  fi
+}
+
+_log_prefix() {
+  printf "[%s] (%s)" "$(date +"%Y/%m/%d %H:%M:%S")" "$1"
+  _log_indent
+}

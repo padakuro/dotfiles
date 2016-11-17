@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+if [ ${#DOTFILES_LIB_ROOT} -lt 5 ]; then echo "No no no."; exit 1; fi;
+
+source "${DOTFILES_LIB_ROOT}/logging"
+source "${DOTFILES_LIB_ROOT}/symlink"
+source "${DOTFILES_LIB_ROOT}/files"
+source "${DOTFILES_LIB_ROOT}/arch"
+source "${DOTFILES_LIB_ROOT}/text"
