@@ -8,8 +8,6 @@ commonPkgs=(
   file-icons
   autocomplete-paths
   merge-conflicts
-
-  flatwhite-syntax
 )
 
 goPkgs=(
@@ -46,6 +44,11 @@ webPkgs=(
   php-integrator-refactoring
 )
 
+elixirPkgs=(
+  language-elixir
+  atom-elixir
+)
+
 install_pkgs() {
   local atomHome="$1"; shift
   local pkgs=("$@")
@@ -77,6 +80,25 @@ install_pkgs() {
   log_section_end
 }
 
-install_pkgs ~/.atom "${commonPkgs[@]}"
-install_pkgs ~/.atom-go "${commonPkgs[@]}" "${goPkgs[@]}"
-install_pkgs ~/.atom-web "${commonPkgs[@]}" "${webPkgs[@]}"
+update_pkgs() {
+  local atomHome="$1"; shift
+
+  export ATOM_HOME="${atomHome}"
+  apm upgrade --confirm false
+}
+
+case "$1" in
+  update)
+    update_pkgs ~/.atom
+    update_pkgs ~/.atom-go
+    update_pkgs ~/.atom-web
+    update_pkgs ~/.atom-elixir
+  ;;
+
+  install)
+    install_pkgs ~/.atom "${commonPkgs[@]}"
+    install_pkgs ~/.atom-go "${commonPkgs[@]}" "${goPkgs[@]}"
+    install_pkgs ~/.atom-web "${commonPkgs[@]}" "${webPkgs[@]}"
+    install_pkgs ~/.atom-elixir "${commonPkgs[@]}" "${elixirPkgs[@]}"
+  ;;
+esac
