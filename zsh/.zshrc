@@ -14,8 +14,6 @@ zplug "zsh-users/zsh-autosuggestions"
 zplug "${HOME}/.zsh/plugins", from:local
 zplug load
 
-source "${HOME}/.zsh/base16-shell/scripts/base16-solarized-dark.sh"
-
 # load custom configs
 for rcfile in "${ZDOTDIR:-$HOME}"/.zsh/*.zshrc; do
   source "${rcfile}"
