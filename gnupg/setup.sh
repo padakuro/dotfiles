@@ -1,6 +1,10 @@
 #!/usr/bin/env zsh
 if [ ${#DOTFILES_LIB_ROOT} -lt 5 ]; then echo "No no no."; exit 1; fi; source "${DOTFILES_LIB_ROOT}/index"
 
+ensure_arch_package "gnupg"
+ensure_arch_package "ccid" # USB smartcard support
+ensure_arch_package "pcsc-tools" # Smartcard tools
+
 symlink_files "${DOTFILES_SELF_ROOT}/.gnupg" "${DOTFILES_SELF_ROOT}"
 symlink_files "${DOTFILES_SELF_ROOT}/.zsh" "${DOTFILES_SELF_ROOT}"
 
