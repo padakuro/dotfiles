@@ -1,10 +1,8 @@
 " inspired by https://github.com/bling/dotvim
 
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-
 set all& "reset everything to their defaults
 set nocompatible "iMproved
-set background=dark
+set termguicolors "true color
 
 let mapleader=","
 
@@ -21,16 +19,17 @@ endfunction "}}}
     call neobundle#begin(expand('~/.vim/bundle/'))
 
     " a colorscheme
-    NeoBundle 'chriskempson/base16-vim'
+    NeoBundle 'joshdick/onedark.vim'
 
     " better statusline
     NeoBundle 'vim-airline/vim-airline-themes'
     NeoBundle 'vim-airline/vim-airline' "{{{
-      let g:airline_theme='solarized'
+      let g:airline_theme = 'onedark'
       let g:airline_left_sep = ''
       let g:airline_left_sep_alt = ''
       let g:airline_right_sep = ''
       let g:airline_right_sep_alt = ''
+      let g:airline_powerline_fonts = 1
     "}}}
 
     " build/test runner
@@ -120,7 +119,8 @@ endfunction "}}}
 
 "{{{ base
 
-colorscheme base16-solarized
+colorscheme onedark
+set background=dark " dark theme
 set mouse=a " enable mouse
 set mousehide " hide mouse while typing
 set history=1000 " command history

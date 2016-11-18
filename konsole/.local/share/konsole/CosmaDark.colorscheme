@@ -8,89 +8,87 @@ Color=40,44,52
 Color=33,37,43
 
 [Color0]
-Color=7,54,66
+Color=40,44,52
 
 [Color0Faint]
-Color=32,43,54
+Color=40,44,52
 
 [Color0Intense]
-Color=0,43,54
+Color=40,44,52
 
 [Color1]
-Color=237,21,21
+Color=224,108,117
 
 [Color1Faint]
-Color=120,50,40
+Color=224,108,117
 
 [Color1Intense]
-Color=192,57,43
+Color=224,108,117
 
 [Color2]
-Color=17,209,22
+Color=152,195,121
 
 [Color2Faint]
-Color=23,162,98
+Color=152,195,121
 
 [Color2Intense]
-Color=28,220,154
+Color=152,195,121
 
 [Color3]
-Color=246,116,0
+Color=209,154,102
 
 [Color3Faint]
-Color=182,86,25
+Color=209,154,102
 
 [Color3Intense]
-Color=253,188,75
+Color=209,154,102
 
 [Color4]
-Color=29,153,243
+Color=97,175,239
 
 [Color4Faint]
-Color=27,102,143
+Color=97,175,239
 
 [Color4Intense]
-Color=61,174,233
+Color=97,175,239
 
 [Color5]
-Color=155,89,182
+Color=198,120,221
 
 [Color5Faint]
-Color=97,74,115
+Color=198,120,221
 
 [Color5Intense]
-Color=142,68,173
+Color=198,120,221
 
 [Color6]
-Color=26,188,156
+Color=86,182,194
 
 [Color6Faint]
-Color=24,108,96
+Color=86,182,194
 
 [Color6Intense]
-Color=22,160,133
+Color=86,182,194
 
 [Color7]
-Color=239,240,241
+Color=171,178,191
 
 [Color7Faint]
-Color=99,104,109
+Color=171,178,191
 
 [Color7Intense]
-Color=252,252,252
+Color=255,255,255
 
 [Foreground]
-Color=239,240,241
+Color=171,178,191
 
 [ForegroundFaint]
-Color=220,230,231
+Color=171,178,191
 
 [ForegroundIntense]
-Color=252,252,252
+Color=255,255,255
 
 [General]
-Description=CosmaDark
+Description=CosmaDark (Atom One Dark)
 Opacity=1
 Wallpaper=
-
-# Same as Breeze color scheme with changed background colors (from Atom One Dark)
