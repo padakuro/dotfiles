@@ -8,6 +8,7 @@ commonPkgs=(
   file-icons
   autocomplete-paths
   merge-conflicts
+  language-docker
 )
 
 goPkgs=(
@@ -100,5 +101,9 @@ case "$1" in
     install_pkgs ~/.atom-go "${commonPkgs[@]}" "${goPkgs[@]}"
     install_pkgs ~/.atom-web "${commonPkgs[@]}" "${webPkgs[@]}"
     install_pkgs ~/.atom-elixir "${commonPkgs[@]}" "${elixirPkgs[@]}"
+  ;;
+
+  *)
+    symlink_files "${DOTFILES_SELF_ROOT}/.zsh" "${DOTFILES_SELF_ROOT}"
   ;;
 esac
