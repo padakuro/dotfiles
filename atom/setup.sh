@@ -13,17 +13,6 @@ commonPkgs=(
 
 goPkgs=(
   go-plus
-  autocomplete-go
-  gofmt
-  builder-go
-  gometalinter-linter
-  navigator-godef
-  tester-go
-  gorename
-  go-debug
-  godoc
-  go-get
-  go-config
   linter
 )
 
