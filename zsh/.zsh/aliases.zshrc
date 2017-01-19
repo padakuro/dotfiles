@@ -7,7 +7,3 @@ alias ledatet='date +"%Y%m%d-%H%M"'
 alias ledatets='date +"%Y%m%d-%H%M%S"'
 alias rm='rm -I'
 alias sedit='sudoedit'
-
-# the specified TERM on my workstation might not be available in other distros
-# such as CoreOS
-alias ssh='TERM=xterm-256color ssh'
