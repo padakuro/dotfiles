@@ -7,7 +7,7 @@ allow_bold = false
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = Iosevka Medium 10.5
+font = Iosevka Medium 13
 scrollback_lines = 1000
 search_wrap = true
 #icon_name = terminal
@@ -28,45 +28,47 @@ cursor_shape = block
 # emit escape sequences for other keys modified by Control
 #modify_other_keys = false
 
+# one dark
+# https://github.com/1se/onedark-termite
 [colors]
 
 # special
-foreground      = #b8c4ca
-foreground_bold = #b8c4ca
-cursor          = #b8c4ca
-background      = #1e242f
+foreground      = #abb2bf
+foreground_bold = #abb2bf
+cursor          =
+background      = #282c34
 
 # black
-color0  = #0a0a0a
-color8  = #3c3c3c
+color0  = #282c34
+color8  = #5c6370
 
 # red
-color1  = #f64549
-color9  = #f94445
+color1  = #e06c75
+color9  = #be5046
 
 # green
-color2  = #1fc17a
-color10 = #13c379
+color2  = #98c379
+color10 = #7a9f60
 
 # yellow
-color3  = #feef5a
-color11 = #fef050
+color3  = #e5c07b
+color11 = #d19a66
 
 # blue
-color4  = #79b0de
-color12 = #77afe1
+color4  = #61afef
+color12 = #3b84c0
 
 # magenta
-color5  = #b1387b
-color13 = #b1387b
+color5  = #c678dd
+color13 = #9a52af
 
 # cyan
-color6  = #0edbaf
-color14 = #0edbaf
+color6  = #56b6c2
+color14 = #3c909b
 
 # white
-color7  = #8798a4
-color15 = #ffffff
+color7  = #abb2bf
+color15 = #828997
 
 [hints]
 #font = Monospace 12
