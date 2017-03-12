@@ -45,6 +45,12 @@ symlink_files() {
       rm "${dst}"
     fi
 
+    local dstDir="$(dirname "${dst}")"
+    if [ ! -d "${dstDir}" ]; then
+      log_debug "Creating target directory:" "${dstDir}"
+      mkdir -p "${dstDir}"
+    fi
+
     log_info "Symlink:" "${rel} -> ${dst}"
     ${DOTFILES_DRY_RUN} ln -s "${src}" "${dst}"
   done
