@@ -3,12 +3,8 @@ source ${HOME}/.zsh/zplug/init.zsh
 
 zplug "mafredri/zsh-async"
 zplug "sindresorhus/pure"
-# zplug "mollifier/anyframe"
-# zplug "willghatch/zsh-cdr"
-zplug "zsh-users/zsh-completions"
-zplug "felixr/docker-zsh-completion"
-zplug "b4b4r07/enhancd", use:init.sh
-zplug "zsh-users/zsh-syntax-highlighting", nice:10
+#zplug "b4b4r07/enhancd", use:init.sh
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "${HOME}/.zsh/plugins", from:local
