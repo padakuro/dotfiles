@@ -3,3 +3,4 @@ if [ -z "${GOPATH}" ]; then
 fi
 
 export GOPATH
+export PATH=$PATH:${HOME}/.go/bin
