@@ -1,6 +1,0 @@
-[submodule "zsh-zplug"]
-	path = zsh/.zsh/zplug
-	url = https://github.com/zplug/zplug
-[submodule "nvim/.nvim/bundles/dein.vim"]
-	path = nvim/.nvim/bundles/dein.vim
-	url = https://github.com/Shougo/dein.vim.git
