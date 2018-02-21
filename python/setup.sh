@@ -9,4 +9,4 @@ fi
 ensure_directory "${WORKON_HOME}"
 ensure_arch_package "python-virtualenvwrapper"
 
-symlink_recursive "${DOTFILES_SELF_ROOT}"
+install_directory "${DOTFILES_SELF_ROOT}/.zsh"

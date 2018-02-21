@@ -1,0 +1,36 @@
+#!/usr/bin/env zsh
+
+db_add() {
+  local filePath="$1"
+  local fileHash="$2"
+
+  # TODO: you can't touch this (all the time)
+  touch "${DOTFILES_DB_FILE}"
+
+  echo "${fileHash}|${filePath}" >> "${DOTFILES_DB_FILE}"
+}
+
+db_update() {
+  local filePath="$1"
+  local fileHash="$2"
+
+  # TODO: you can't touch this (all the time)
+  touch "${DOTFILES_DB_FILE}"
+
+  # remove existing entry
+  $(grep -v "|${filePath}" "${DOTFILES_DB_FILE}") > "${DOTFILES_DB_FILE}"
+
+  db_add "${filePath}" "${fileHash}"
+}
+
+db_hash_of() {
+  local filePath="$1"
+  local currentHash=
+  currentHash="$(grep "|${filePath}" "${DOTFILES_DB_FILE}" | cut -d'|' -f1)"
+
+  if [ $? -eq 0 ]; then
+    result="${currentHash}"
+  else
+    result="__NOT_EXIST__"
+  fi
+}

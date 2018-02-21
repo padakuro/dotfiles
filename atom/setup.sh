@@ -93,6 +93,6 @@ case "$1" in
   ;;
 
   *)
-    symlink_files "${DOTFILES_SELF_ROOT}/.zsh" "${DOTFILES_SELF_ROOT}"
+    install_directory "${DOTFILES_SELF_ROOT}/.zsh"
   ;;
 esac

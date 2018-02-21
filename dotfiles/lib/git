@@ -1,0 +1,17 @@
+#!/usr/bin/env zsh
+
+install_git() {
+  local gitPath="$1"
+  local gitUrl="$2"
+  local gitRef="${3:-master}"
+
+  if [ -d "${gitPath}/.git" ]; then
+    log_info "Updating repository: ${gitUrl}@${gitRef} -> ${gitPath}"
+    git -C "${gitPath}" fetch
+    git -C "${gitPath}" reset --hard ${gitRef}
+  else
+    log_info "Cloning new repository: ${gitUrl}@${gitRef} -> ${gitPath}"
+    git clone "${gitUrl}" "${gitPath}"
+    git -C "${gitPath}" checkout "${gitRef}"
+  fi
+}

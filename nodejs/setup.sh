@@ -1,12 +1,15 @@
 #!/usr/bin/env zsh
 if [ ${#DOTFILES_LIB_ROOT} -lt 5 ]; then echo "No no no."; exit 1; fi; source "${DOTFILES_LIB_ROOT}/index"
 
-touch "${DOTFILES_HOME}/.npmrc"
-npm_prefix=$(grep "^prefix" "${DOTFILES_HOME}/.npmrc")
+source "${DOTFILES_SELF_ROOT}/.zsh/nodejs.zshenv"
 
-if [ ! $? -eq 0 ]; then
-  echo "prefix = ${NPM_PACKAGES}" >> ~/.npmrc
+npmRc="${DOTFILES_HOME}/.npmrc"
+touch "${npmRc}"
+
+grep "^prefix" "${npmRc}" > /dev/null
+if [ $? -ne 0 ]; then
+  echo "prefix = ${NPM_PACKAGES}" >> "${npmRc}"
   log_info ".npmrc updated"
 fi
 
-symlink_recursive "${DOTFILES_SELF_ROOT}"
+install_directory "${DOTFILES_SELF_ROOT}/.zsh"

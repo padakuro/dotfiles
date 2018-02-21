@@ -8,6 +8,77 @@ ensure_directory() {
   fi
 
   if [ ! -d "${dir}" ]; then
+    log_info "Creating directory: ${dir}"
     ${DOTFILES_DRY_RUN} mkdir -p "${dir}"
   fi
+}
+
+_install_file() {
+  local srcFile="$1"
+  local stripPath="${2:-${DOTFILES_SELF_ROOT}}/"
+
+  # skip directories since we glob through any subdirectory using the wildcard search
+  if [ -d "${srcFile}" ]; then
+    continue
+  fi
+
+  local relFile="${srcFile#${stripPath}}"
+  local targetFile="${DOTFILES_HOME}/${relFile}"
+  local targetPath="${targetFile:h}" # like $(dirname $targetFile)
+
+  ensure_directory "${targetPath}"
+  local srcFileHash="$(sha512sum "${srcFile}" | cut -d' ' -f1)"
+
+  if [ ! -f "${targetFile}" ]; then
+    log_info "File does not exist, copying ${relFile} -> ${targetFile}"
+
+    cp "${srcFile}" "${targetFile}"
+
+    db_add "${relFile}" "${srcFileHash}"
+  else
+    local targetFileHash="$(sha512sum "${targetFile}" | cut -d' ' -f1)"
+
+    if [ "${srcFileHash}" = "${targetFileHash}" ]; then
+      log_info "Same file exists, ${relFile} -> ${targetFile}"
+      continue
+    else
+      local originalTargetFileHash=
+      db_hash_of "${relFile}"; originalTargetFileHash="${result}"
+
+      if [ "${originalTargetFileHash}" = "${srcFileHash}" ]; then
+        log_info "Target file changed, skipping: ${relFile} -> ${targetFile}"
+      else
+        log_info "Copying updated file: ${relFile} -> ${targetFile}"
+        cp "${srcFile}" "${targetFile}"
+        db_update "${relFile}" "${srcFileHash}"
+      fi
+    fi
+  fi
+}
+
+install_files() {
+  for srcFile in $@; do
+    _install_file "${srcFile}"
+  done
+}
+
+install_directory() {
+  local srcPath="$1"
+  local stripPath="${2:-${DOTFILES_SELF_ROOT}}"
+
+  for srcFile in ${srcPath}/**/*; do
+    _install_file "${srcFile}" "${stripPath}"
+  done
+}
+
+install_module() {
+  local srcPath="$1"
+
+  for src in ${srcPath}/*(D); do
+    if [ -d "${src}" ]; then
+      install_directory "${src}" "${srcPath}"
+    elif [ -f "${src}" ]; then
+      _install_file "${src}" "${srcPath}"
+    fi
+  done
 }

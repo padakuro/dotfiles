@@ -5,5 +5,6 @@ ensure_directory "${DOTFILES_HOME}/.cache/nvim"
 ensure_directory "${DOTFILES_HOME}/.cache/nvim/undo"
 ensure_directory "${DOTFILES_HOME}/.nvim/bundles"
 ensure_directory "${DOTFILES_HOME}/.config/nvim"
-ln -s "${DOTFILES_SELF_ROOT}/.config/nvim/init.vim" "${DOTFILES_HOME}/.config/nvim/init.vim"
-ln -s "${DOTFILES_SELF_ROOT}/.nvim/bundles/dein.vim" "${DOTFILES_HOME}/.nvim/bundles/dein.vim"
+
+install_directory "${DOTFILES_SELF_ROOT}/.config"
+install_git "${DOTFILES_HOME}/.nvim/bundles/dein.vim" "https://github.com/Shougo/dein.vim.git" "5bbff63c09126580ed1ef0df8ed2496d4c0fee82"

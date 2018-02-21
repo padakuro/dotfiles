@@ -8,6 +8,7 @@
 export DOTFILES_ROOT="$(cd "$(dirname ${(%):-%N})/../.." && pwd)"
 export DOTFILES_LIB_ROOT="${DOTFILES_ROOT}/dotfiles/lib"
 export DOTFILES_HOME="${DOTFILES_HOME:-$HOME}"
+export DOTFILES_DB_FILE="${DOTFILES_HOME}/.dotfiles-db"
 
 if [ "${DOTFILES_DRY_RUN}" != "" ]; then
   DOTFILES_DRY_RUN="log_dry"
@@ -69,28 +70,15 @@ cmd_setup() {
     return 0
   fi
 
-  symlink_recursive "${whatRoot}"
+  install_module "${whatRoot}"
+
   log_section_end "Done"
 }
 
 cmd_init() {
   log_section_begin "Initializing dotfiles"
 
-  log_info "Cloning submodules"
-  ${DOTFILES_DRY_RUN} git -C "${DOTFILES_ROOT}" submodule update --init --recursive
-
   log_section_end
 }
-
-# cmd_update() {
-#   log_section_begin "Updating dotfiles"
-#
-#   git -C "${DOTFILES_ROOT}" stash
-#
-#   log_info "Updating submodules"
-#   git -C "${DOTFILES_ROOT}" submodule foreach git pull origin master
-#
-#   git -C "${DOTFILES_ROOT}" stash pop
-# }
 
 main "$@"
