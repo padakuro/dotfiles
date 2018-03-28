@@ -18,7 +18,8 @@ db_update() {
   touch "${DOTFILES_DB_FILE}"
 
   # remove existing entry
-  $(grep -v "|${filePath}" "${DOTFILES_DB_FILE}") > "${DOTFILES_DB_FILE}"
+  cat "${DOTFILES_DB_FILE}" | grep -v "|${filePath}" > "${DOTFILES_DB_FILE}.1"
+  mv "${DOTFILES_DB_FILE}.1" "${DOTFILES_DB_FILE}"
 
   db_add "${filePath}" "${fileHash}"
 }

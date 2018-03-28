@@ -19,7 +19,7 @@ _install_file() {
 
   # skip directories since we glob through any subdirectory using the wildcard search
   if [ -d "${srcFile}" ]; then
-    continue
+    return
   fi
 
   local relFile="${srcFile#${stripPath}}"
@@ -34,25 +34,27 @@ _install_file() {
 
     cp "${srcFile}" "${targetFile}"
 
-    db_add "${relFile}" "${srcFileHash}"
+    db_update "${relFile}" "${srcFileHash}"
+
+    return
+  fi
+
+  local targetFileHash="$(sha512sum "${targetFile}" | cut -d' ' -f1)"
+  local originalTargetFileHash=
+  db_hash_of "${relFile}"; originalTargetFileHash="${result}"
+
+  if [ "${srcFileHash}" = "${targetFileHash}" ]; then
+    log_info "Same file exists, ${relFile} -> ${targetFile}"
+    db_update "${relFile}" "${srcFileHash}"
+    return
+  fi
+
+  if [ "${originalTargetFileHash}" = "${srcFileHash}" ]; then
+    log_info "Target file changed, skipping: ${relFile} -> ${targetFile}"
   else
-    local targetFileHash="$(sha512sum "${targetFile}" | cut -d' ' -f1)"
-
-    if [ "${srcFileHash}" = "${targetFileHash}" ]; then
-      log_info "Same file exists, ${relFile} -> ${targetFile}"
-      continue
-    else
-      local originalTargetFileHash=
-      db_hash_of "${relFile}"; originalTargetFileHash="${result}"
-
-      if [ "${originalTargetFileHash}" = "${srcFileHash}" ]; then
-        log_info "Target file changed, skipping: ${relFile} -> ${targetFile}"
-      else
-        log_info "Copying updated file: ${relFile} -> ${targetFile}"
-        cp "${srcFile}" "${targetFile}"
-        db_update "${relFile}" "${srcFileHash}"
-      fi
-    fi
+    log_info "Copying updated file: ${relFile} -> ${targetFile}"
+    cp "${srcFile}" "${targetFile}"
+    db_update "${relFile}" "${srcFileHash}"
   fi
 }
 
