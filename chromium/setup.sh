@@ -90,6 +90,10 @@ hide_default_launcher() {
 }
 
 case "$1" in
+  default)
+    xdg-settings set default-web-browser "chromium-${2}.desktop"
+  ;;
+
   create)
     create_profile "$2" "$3"
   ;;
