@@ -7,7 +7,7 @@ allow_bold = false
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = Iosevka Medium 13
+font = Iosevka 10.5
 scrollback_lines = 1000
 search_wrap = true
 #icon_name = terminal
@@ -28,47 +28,46 @@ cursor_shape = block
 # emit escape sequences for other keys modified by Control
 #modify_other_keys = false
 
-# one dark
-# https://github.com/1se/onedark-termite
+# http://blueprintjs.com/docs/v2/#core/colors
 [colors]
 
 # special
-foreground      = #abb2bf
-foreground_bold = #abb2bf
-cursor          =
-background      = #282c34
+foreground      = #10161A
+foreground_bold = #10161A
+cursor          = #2965CC
+background      = #F5F8FA
 
 # black
-color0  = #282c34
-color8  = #5c6370
+color0  = #ffffff
+color8  = #182026
 
 # red
-color1  = #e06c75
-color9  = #be5046
+color1  = #DB3737
+color9  = #DB3737
 
 # green
-color2  = #98c379
-color10 = #7a9f60
+color2  = #0F9960
+color10 = #0F9960
 
 # yellow
-color3  = #e5c07b
-color11 = #d19a66
+color3  = #F2B824
+color11 = #F2B824
 
 # blue
-color4  = #61afef
-color12 = #3b84c0
+color4  = #2965CC
+color12 = #2965CC
 
 # magenta
-color5  = #c678dd
-color13 = #9a52af
+color5  = #8F398F
+color13 = #8F398F
 
 # cyan
-color6  = #56b6c2
-color14 = #3c909b
+color6  = #7157D9
+color14 = #7157D9
 
 # white
-color7  = #abb2bf
-color15 = #828997
+color7  = #ffffff
+color15 = #ffffff
 
 [hints]
 #font = Monospace 12
