@@ -8,6 +8,8 @@ ensure_arch_package "pcsc-tools" # Smartcard tools
 install_directory "${DOTFILES_SELF_ROOT}/.gnupg"
 install_directory "${DOTFILES_SELF_ROOT}/.zsh"
 
+chmod 700  "${DOTFILES_SELF_ROOT}/.gnupg"
+
 grep "pinentry-program" ${DOTFILES_HOME}/.gnupg/gpg-agent.conf > /dev/null
 if [ $? -ne 0 ]; then
   echo "pinentry-program ${DOTFILES_HOME}/.gnupg/pinentry.sh" >> ${DOTFILES_HOME}/.gnupg/gpg-agent.conf
@@ -21,3 +23,5 @@ if [ ! -f "${caFile}" ]; then
   sudo mv "/tmp/sks-keyservers.netCA.crt" "${caFile}"
   sudo update-ca-trust
 fi
+
+sudo chown root:root "${caFile}"
