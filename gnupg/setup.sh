@@ -14,14 +14,3 @@ grep "pinentry-program" ${DOTFILES_HOME}/.gnupg/gpg-agent.conf > /dev/null
 if [ $? -ne 0 ]; then
   echo "pinentry-program ${DOTFILES_HOME}/.gnupg/pinentry.sh" >> ${DOTFILES_HOME}/.gnupg/gpg-agent.conf
 fi
-
-local caFile="/usr/share/ca-certificates/trust-source/anchors/sks-keyservers.netCA.crt"
-
-if [ ! -f "${caFile}" ]; then
-  log_info "Installing SKS seyserver CA"
-  ${DOTFILES_DRY_RUN} curl -L -o "/tmp/sks-keyservers.netCA.crt" "https://sks-keyservers.net/sks-keyservers.netCA.pem"
-  sudo mv "/tmp/sks-keyservers.netCA.crt" "${caFile}"
-  sudo update-ca-trust
-fi
-
-sudo chown root:root "${caFile}"
