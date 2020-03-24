@@ -5,9 +5,11 @@
 	autocorrect = 1
 [pull]
 	default = current
+	rebase = true
 [push]
 	default = current
 [rebase]
 	stat = 1
+	autoStash = true
 [status]
 	short = 1
