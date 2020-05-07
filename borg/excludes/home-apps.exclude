@@ -1,0 +1,35 @@
+/home/*/.PhpStorm*/system/
+/home/*/.WebStorm*/system/
+/home/*/.DataGrip*/system/
+/home/*/.PyCharm*/system/
+/home/*/.Rider*/system/
+/home/*/.CLion*/system/
+/home/*/.GoLand*/system/
+
+/home/*/.steam/
+/home/*/.atom/
+/home/*/.atom-*/
+
+/home/*/.config/chromium*/Default/Service Worker/
+/home/*/.config/chromium*/Default/Feature Engagement Tracker/
+/home/*/.config/chromium*/Default/IndexedDB/
+/home/*/.config/chromium*/Default/File System/
+/home/*/.config/chromium*/Default/Local Storage/
+/home/*/.config/chromium*/Default/Site Characteristics Database/
+/home/*/.config/chromium*/Default/Download Service/
+/home/*/.config/chromium*/Default/VideoDecodeStats/
+/home/*/.config/chromium*/Default/*Cache
+/home/*/.config/chromium*/*Cache
+/home/*/.config/chromium*/CertificateTransparency/
+/home/*/.config/chromium*/CertificateRevocation/
+
+/home/*/.mozilla/firefox/Crash Reports/
+/home/*/.mozilla/firefox/Pending Pings/
+/home/*/.mozilla/firefox/*/crashes/
+/home/*/.mozilla/firefox/*/gmp*/
+/home/*/.mozilla/firefox/*/datareporting/
+/home/*/.mozilla/firefox/*/sessionstore-backups/
+/home/*/.mozilla/firefox/*/minidumps/
+/home/*/.mozilla/firefox/*/saved-telemetry-pings/
+/home/*/.mozilla/firefox/*/storage/
+/home/*/.mozilla/firefox/*/storage.sqlite
