@@ -7,4 +7,6 @@ ensure_directory "${DOTFILES_HOME}/.nvim/bundles"
 ensure_directory "${DOTFILES_HOME}/.config/nvim"
 
 install_directory "${DOTFILES_SELF_ROOT}/.config"
-install_git "${DOTFILES_HOME}/.nvim/bundles/dein.vim" "https://github.com/Shougo/dein.vim.git" "5f5c8b9a87dedc2e133237056660162da261a366"
+install_directory "${DOTFILES_SELF_ROOT}/.zsh"
+
+install_git "${DOTFILES_HOME}/.nvim/bundles/dein.vim" "https://github.com/Shougo/dein.vim.git" "108cd6e749099ec75d9763d1384ab4d90999459e"

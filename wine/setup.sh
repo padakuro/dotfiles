@@ -6,6 +6,7 @@ if [ ${#DOTFILES_LIB_ROOT} -lt 5 ]; then echo "No no no."; exit 1; fi; source "$
 # remove existing stuff
 rm -vf ${DOTFILES_HOME}/.local/share/mime/packages/x-wine*
 rm -vf ${DOTFILES_HOME}/.local/share/applications/wine-extension*
+rm -vrf ${DOTFILES_HOME}/.local/share/applications/wine/Programs/*
 rm -vf ${DOTFILES_HOME}/.local/share/icons/hicolor/*/*/application-x-wine-extension*
 rm -vf ${DOTFILES_HOME}/.local/share/mime/application/x-wine-extension*
 find ${DOTFILES_HOME}/.local/share/mime -name '*wine*' -exec rm -vf {} \;

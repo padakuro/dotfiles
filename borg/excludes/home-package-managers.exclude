@@ -1,0 +1,15 @@
+*/node_modules/
+*/vendor/
+
+/home/*/.glide/
+/home/*/.yarn/
+/home/*/.yarn-*/
+/home/*/.bundle/
+/home/*/.npm/
+/home/*/.npm-packages/
+/home/*/.node-gyp/
+/home/*/.cargo/
+/home/*/.composer/cache/
+/home/*/.go/
+/home/*/.hex/
+/home/*/.mix/

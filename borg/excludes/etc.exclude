@@ -1,0 +1,12 @@
+/etc/cups/ssl
+/etc/docker
+/etc/lvm/cache
+/etc/pacman.d/gnupg
+/etc/polkit-1/rules.d
+/etc/sudoers.d
+/etc/libvirt/secrets
+/etc/openvpn
+/etc/wireguard
+/etc/samba/private
+/etc/audisp/plugins.d
+/etc/ssl

@@ -1,1 +1,1 @@
-export BROWSER='chromium'
+export BROWSER='chromium-main'

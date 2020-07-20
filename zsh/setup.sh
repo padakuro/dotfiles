@@ -8,4 +8,4 @@ install_files \
   "${DOTFILES_SELF_ROOT}/.zshenv" \
   "${DOTFILES_SELF_ROOT}/.zshrc"
 
-install_git "${DOTFILES_HOME}/.zsh/zplug" "https://github.com/zplug/zplug.git" "335536a8e15b4ada24047b4c32aa456af01a3a0c"
+install_git "${DOTFILES_HOME}/.zsh/zinit" "https://github.com/zdharma/zinit.git" "efff1767794a75624d063f1359e4dcb6e17d0b87"

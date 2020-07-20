@@ -1,6 +1,5 @@
 " inspired by https://github.com/bling/dotvim
 
-set all& "reset everything to their defaults
 set nocompatible "iMproved
 set termguicolors "true color
 

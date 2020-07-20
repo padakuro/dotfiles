@@ -16,5 +16,6 @@ case "$1" in
     dconf load /org/gnome/terminal/legacy/ < ${DOTFILES_SELF_ROOT}/terminal.conf
 
     install_directory "${DOTFILES_SELF_ROOT}/.config"
+    install_directory "${DOTFILES_SELF_ROOT}/.zsh"
   ;;
 esac
