@@ -13,3 +13,5 @@
 	autoStash = true
 [status]
 	short = 1
+[advice]
+  detachedHead = 0
