@@ -1,14 +1,15 @@
 # load the plugin manager and plugins
-source ${HOME}/.zsh/zplug/init.zsh
+source ~/.zsh/zinit/zinit.zsh
 
-zplug "mafredri/zsh-async"
-zplug "sindresorhus/pure"
-#zplug "b4b4r07/enhancd", use:init.sh
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "zsh-users/zsh-history-substring-search"
-zplug "zsh-users/zsh-autosuggestions"
-zplug "${HOME}/.zsh/plugins", from:local
-zplug load
+zinit light "zsh-users/zsh-history-substring-search"
+zinit ice pick"async.zsh" src"pure.zsh"
+zinit light "sindresorhus/pure"
+
+zinit wait lucid light-mode for \
+  atinit"zicompinit; zicdreplay" "zdharma/fast-syntax-highlighting" \
+  atload"_zsh_autosuggest_start" "zsh-users/zsh-autosuggestions" \
+  "zdharma/history-search-multi-word" \
+  blockf atpull"zinit creinstall -q ." "zsh-users/zsh-completions"
 
 # load custom configs
 for rcfile in "${ZDOTDIR:-$HOME}"/.zsh/*.zshrc; do
