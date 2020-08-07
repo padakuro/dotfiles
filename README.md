@@ -19,17 +19,17 @@ These dotfiles are self contained, ie. no external tool is used to manage the fi
 git clone https://github.com/padakuro/dotfiles.git ~/.dotfiles
 
 ~/.dotfiles/dotfiles/dotfiles.sh init
+~/.dotfiles/dotfiles/dotfiles.sh setup zsh
 ~/.dotfiles/dotfiles/dotfiles.sh setup dotfiles
-
-rehash
 ```
+
+Exit and re-login to start a new ZSH shell.
 
 ### Everyday usage
 
 The `dotfiles.sh` command should now be globally available.
 
 ```sh
-dotfiles.sh setup zsh
 dotfiles.sh setup nvim
 dotfiles.sh setup gnupg
 ```
@@ -39,7 +39,7 @@ dotfiles.sh setup gnupg
 The `dotfiles.sh` script is used to manage the dotfiles (install and update). It is not a full blown solution an rather a simple script to handle my most common use cases: copying and updating my dotfiles. No special multi-machine logic as of yet. Should not be invoked multiple times in parallel.
 
 * `dotfiles.sh`: The main script which acts as a command dispatcher.
-* `dotfiles/lib/*`: Helper functions available to all `setup.sh`. 
+* `dotfiles/lib/*`: Helper functions available to all `setup.sh`.
 * `*/setup.sh`: Usually found in a subfolder. It contains additional logic in case it's there's more to do than copying files.
 * `$HOME/.dotfiles-db`: Contains a list of files copied including a hash. This is used to detect changes on either side.
 

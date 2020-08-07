@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 if [ ${#DOTFILES_LIB_ROOT} -lt 5 ]; then echo "No no no."; exit 1; fi; source "${DOTFILES_LIB_ROOT}/index"
 
+ensure_arch_package "zsh"
 ensure_directory "${DOTFILES_HOME}/.zsh/plugins"
 install_directory "${DOTFILES_SELF_ROOT}/.zsh"
 install_files \
