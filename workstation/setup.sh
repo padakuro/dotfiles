@@ -2,19 +2,11 @@
 if [ ${#DOTFILES_LIB_ROOT} -lt 5 ]; then echo "No no no."; exit 1; fi; source "${DOTFILES_LIB_ROOT}/index"
 
 _main() {
-  cmd="$1"
+  cmd="$1"; shift;
 
   case "${cmd}" in
-    install)
-      local de="$2"
-
-      #_install_common
-      _install_uninstall_desktop_environment "install" "${de}"
-    ;;
-    uninstall)
-      local de="$2"
-
-      _install_uninstall_desktop_environment "uninstall" "${de}"
+    install|uninstall)
+      _un_install_packages ${cmd} $@
     ;;
     *)
       _install_self
@@ -22,148 +14,157 @@ _main() {
   esac
 }
 
-_install_self() {
-  install_directory "${DOTFILES_SELF_ROOT}/.config"
-  install_directory "${DOTFILES_SELF_ROOT}/.zsh"
-}
+_un_install_packages() {
+  local mode="$1"; shift;
 
-_install_common() {
-  local standardPackages=(
-    tmux
-    tree
-    pv
-    expect
-    p7zip
-    nftables
-    powertop
-    ntfs-3g
-    wine-staging
-    gimp
-    neovim
-    ghostscript
-    ffmpeg
-    sudo
-  )
-  local devPackages=(
-    atom
-
-    nodejs
-
-    php
-    php-apcu
-    php-apcu-bc
-    php-cgi
-    php-embed
-    php-gd
-    php-imap
-    php-intl
-    php-phpdbg
-    php-sqlite
-    php-xsl
-    xdebug
-    composer
-  )
-
-  sudo pacman --needed -S ${standardPackages[@]} ${devPackages[@]}
-}
-
-_install_uninstall_desktop_environment() {
-  local mode="$1"
-  local de="$2"
-
-  local name=""
-  local includePackages=()
+  local packages=()
   local excludePackages=()
 
-  case "${de}" in
-    kde)
-      name="kde"
+  for bundle in $@; do
+    log_section_begin "Adding bundle: ${bundle}"
 
-      includePackages=(
-        plasma
-        plasma-wayland-session
-        phonon-qt5-gstreamer
-        ark
-        baka-mplayer
-        dolphin
-        dolphin-plugins
-        ffmpegthumbs
-        gwenview
-        k3b
-        kamera
-        kate
-        kcolorchooser
-        kcalc
-        kcharselect
-        kdialog
-        kgpg
-        kio-extras
-        kompare
-        konsole
-        krdc
-        kwalletmanager
-        okular
-        print-manager
-        spectacle
-        materia-kde
-        kvantum-theme-materia
-        kdeconnect
-        keepassxc
-        networkmanager
-      )
+    case "${bundle}" in
+      standard)
+        packages+=(
+          tmux
+          tree
+          pv
+          expect
+          p7zip
+          nftables
+          neovim
+          sudo
+          nss
+          which
+        )
+      ;;
+      desktop)
+        packages+=(
+          ntfs-3g
+          ghostscript
+          ffmpeg
+          gimp
+          chromium
+          firefox
+        )
+      ;;
+      laptop)
+        packages+=(
+          powertop
+        )
+      ;;
+      gaming)
+        packages+=(
+          wine-staging
+        )
+      ;;
+      development|dev)
+        packages+=(
+          atom
 
-      excludePackages=(
-        plasma-workspace-wallpapers
-        drkonqi
-        discover
-        oxygen
-        sddm
-        sddm-kcm
-      )
-    ;;
-    gnome)
-      name="gnome"
+          nodejs
 
-      includePackages=(
-        gnome
-        brasero
-        dconf-editor
-        ghex
-        gnome-tweaks
-        alacritty
-        gitg
-        rawtherapee
-        meld
-        termite
-      )
+          php
+          php-apcu
+          php-apcu-bc
+          php-cgi
+          php-embed
+          php-gd
+          php-imap
+          php-intl
+          php-phpdbg
+          php-sqlite
+          php-xsl
+          xdebug
+          composer
+        )
+      ;;
+      kde)
+        packages+=(
+          plasma
+          plasma-wayland-session
+          phonon-qt5-gstreamer
+          ark
+          baka-mplayer
+          dolphin
+          dolphin-plugins
+          ffmpegthumbs
+          gwenview
+          k3b
+          kamera
+          kate
+          kcolorchooser
+          kcalc
+          kcharselect
+          kdialog
+          kgpg
+          kio-extras
+          kompare
+          konsole
+          krdc
+          kwalletmanager
+          okular
+          print-manager
+          spectacle
+          materia-kde
+          kvantum-theme-materia
+          kdeconnect
+          keepassxc
+          networkmanager
+        )
+        excludePackages+=(
+          plasma-workspace-wallpapers
+          drkonqi
+          discover
+          oxygen
+          sddm
+          sddm-kcm
+        )
+      ;;
+      gnome)
+        packages+=(
+          gnome
+          brasero
+          dconf-editor
+          ghex
+          gnome-tweaks
+          gitg
+          meld
+          termite
+          pdfarranger
+        )
+        excludePackages+=(
+          epiphany
+          baobab
+          yelp
+          orca
+          gnome-terminal
+          gnome-boxes
+          gnome-books
+          gnome-user-share
+          gnome-user-docs
+          gnome-getting-started-docs
+          gnome-software
+          # gnome-calendar
+          # gnome-contacts
+          # gnome-maps
+          # gnome-todo
+        )
+      ;;
+      *)
+        log_error "Bundle is unknown"
+      ;;
+    esac
 
-      excludePackages=(
-        baobab
-        yelp
-        orca
-        gnome-terminal
-        gnome-boxes
-        gnome-user-share
-        gnome-user-docs
-        gnome-getting-started-docs
-        gnome-software
-        # gnome-calendar
-        # gnome-contacts
-        # gnome-maps
-        # gnome-todo
-      )
-    ;;
-  esac
-
-  if [ "${name}" = "" ]; then
-    log_warning "Not installing DE since none or an unknown has been specified" "${de}"
-    return
-  fi
+    log_section_end
+  done
 
   local ignorePackages=()
   for pkgName in "${excludePackages[@]}"; do
     ignorePackages+=(--ignore ${pkgName})
   done
+
+  ensure_arch_package "expect"
 
   case "${mode}" in
     install)
@@ -174,7 +175,7 @@ set send_slow {1 .1}
 exp_send -s -- \$arg
 }
 set timeout 3600
-spawn pacman --needed -S ${includePackages[@]} ${ignorePackages[@]}
+spawn pacman --needed -S ${packages[@]} ${ignorePackages[@]} ${WS_PACMAN_CLI}
 expect {
   -exact "anyway? \[Y/n\] " { send -- "n\r"; exp_continue }
   -exact "(default=all): " { send -- "\r"; exp_continue }
@@ -182,15 +183,15 @@ expect {
 }
 EOF
     ;;
-
     uninstall)
-      sudo pacman -Rcu ${includePackages[@]}
-    ;;
-
-    *)
-      log_warning "Unknown installation mode specified" "${mode}"
+      sudo pacman -Rcu ${packages[@]}
     ;;
   esac
+}
+
+_install_self() {
+  install_directory "${DOTFILES_SELF_ROOT}/.config"
+  install_directory "${DOTFILES_SELF_ROOT}/.zsh"
 }
 
 _main $@
