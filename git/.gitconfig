@@ -2,16 +2,17 @@
 	name = Pascal Kuendig
 	email = padakuro@gmail.com
 [help]
-	autocorrect = 1
+	autoCorrect = 1
 [pull]
 	default = current
 	rebase = true
 [push]
 	default = current
 [rebase]
-	stat = 1
+	stat = true
 	autoStash = true
+	autoSquash = true
 [status]
-	short = 1
+	short = true
 [advice]
-  detachedHead = 0
+  detachedHead = false
