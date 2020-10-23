@@ -30,7 +30,7 @@ case "$1" in
     done
   ;;
 
-  *)
+  install)
     for cfg in "${confPaths[@]}"; do
       fileName="${cfg//\//-}.conf"
       dconf load "/${cfg}/" < "${DOTFILES_SELF_ROOT}/${fileName}"
