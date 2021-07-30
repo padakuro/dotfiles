@@ -6,8 +6,11 @@ zinit ice pick"async.zsh" src"pure.zsh"
 zinit light "sindresorhus/pure"
 
 zinit wait lucid light-mode for \
-  atinit"zicompinit; zicdreplay" "zdharma/fast-syntax-highlighting" \
-  atload"_zsh_autosuggest_start" "zsh-users/zsh-autosuggestions" \
+  atinit"zicompinit; zicdreplay" \
+  "Aloxaf/fzf-tab" \
+  "zdharma/fast-syntax-highlighting" \
+  atload"_zsh_autosuggest_start" \
+  "zsh-users/zsh-autosuggestions" \
   "zdharma/history-search-multi-word" \
   blockf atpull"zinit creinstall -q ." "zsh-users/zsh-completions"
 

@@ -9,4 +9,4 @@ install_files \
   "${DOTFILES_SELF_ROOT}/.zshenv" \
   "${DOTFILES_SELF_ROOT}/.zshrc"
 
-install_git "${DOTFILES_HOME}/.zsh/zinit" "https://github.com/zdharma/zinit.git" "efff1767794a75624d063f1359e4dcb6e17d0b87"
+install_git "${DOTFILES_HOME}/.zsh/zinit" "https://github.com/zdharma/zinit.git" "9ea1c9bcb7a5ffc893eb09f1ee355e5cee8d1e6d"

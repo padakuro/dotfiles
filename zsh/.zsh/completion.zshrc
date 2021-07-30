@@ -17,3 +17,9 @@ bindkey -M menuselect '^h' vi-backward-char
 bindkey -M menuselect '^j' vi-down-line-or-history
 bindkey -M menuselect '^k' vi-up-line-or-history
 bindkey -M menuselect '^l' vi-forward-char
+
+zstyle ':completion:*:git-checkout:*' sort false
+zstyle ':completion:*:git-commit:*' sort false
+zstyle ':completion:*:git-log:*' sort false
+zstyle ':completion:*:tig:*' sort false
+zstyle ':completion:*:descriptions' format '[%d]'
