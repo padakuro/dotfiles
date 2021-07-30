@@ -5,20 +5,27 @@
 /home/*/.Rider*/system/
 /home/*/.CLion*/system/
 /home/*/.GoLand*/system/
+/home/*/.AndroidStudio*/system/
+
+/home/*/.local/share/Steam
+/home/*/.local/share/JetBrains/Toolbox/
 
 /home/*/.steam/
 /home/*/.atom/
 /home/*/.atom-*/
+/home/*/.config/Atom/Cache/
+/home/*/.config/Insomnia/Cache/
+/home/*/.config/Code - OSS/
 
-/home/*/.config/chromium*/Default/Service Worker/
-/home/*/.config/chromium*/Default/Feature Engagement Tracker/
-/home/*/.config/chromium*/Default/IndexedDB/
-/home/*/.config/chromium*/Default/File System/
-/home/*/.config/chromium*/Default/Local Storage/
-/home/*/.config/chromium*/Default/Site Characteristics Database/
-/home/*/.config/chromium*/Default/Download Service/
-/home/*/.config/chromium*/Default/VideoDecodeStats/
-/home/*/.config/chromium*/Default/*Cache
+/home/*/.config/chromium*/*/Service Worker/
+/home/*/.config/chromium*/*/Feature Engagement Tracker/
+/home/*/.config/chromium*/*/IndexedDB/
+/home/*/.config/chromium*/*/File System/
+/home/*/.config/chromium*/*/Local Storage/
+/home/*/.config/chromium*/*/Site Characteristics Database/
+/home/*/.config/chromium*/*/Download Service/
+/home/*/.config/chromium*/*/VideoDecodeStats/
+/home/*/.config/chromium*/*/*Cache
 /home/*/.config/chromium*/*Cache
 /home/*/.config/chromium*/CertificateTransparency/
 /home/*/.config/chromium*/CertificateRevocation/
