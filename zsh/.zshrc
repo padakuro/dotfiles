@@ -1,18 +1,18 @@
-# load the plugin manager and plugins
-source ~/.zsh/zinit/zinit.zsh
+pluginDir="${HOME}/.zsh/plugins"
 
-zinit light "zsh-users/zsh-history-substring-search"
-zinit ice pick"async.zsh" src"pure.zsh"
-zinit light "sindresorhus/pure"
+fpath=(${pluginDir}/zsh-completions/src $fpath)
+autoload -U compinit && compinit
 
-zinit wait lucid light-mode for \
-  atinit"zicompinit; zicdreplay" \
-  "Aloxaf/fzf-tab" \
-  "zdharma/fast-syntax-highlighting" \
-  atload"_zsh_autosuggest_start" \
-  "zsh-users/zsh-autosuggestions" \
-  "zdharma/history-search-multi-word" \
-  blockf atpull"zinit creinstall -q ." "zsh-users/zsh-completions"
+source ${pluginDir}/fzf-tab/fzf-tab.zsh
+source ${pluginDir}/zsh-fzf-history-search/zsh-fzf-history-search.zsh
+
+fpath+=${pluginDir}/pure
+autoload -U promptinit; promptinit
+prompt pure
+
+source ${pluginDir}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+unset pluginDir
 
 # load custom configs
 for rcfile in "${ZDOTDIR:-$HOME}"/.zsh/*.zshrc; do
