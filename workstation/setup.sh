@@ -36,6 +36,16 @@ _un_install_packages() {
           sudo
           nss
           which
+          exa
+          watchexec
+          ripgrep
+          tokei
+          fd
+          dust
+          sd
+          bat
+          procs
+          zoxide
         )
       ;;
       desktop)
@@ -66,7 +76,6 @@ _un_install_packages() {
 
           php
           php-apcu
-          php-apcu-bc
           php-cgi
           php-embed
           php-gd
